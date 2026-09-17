@@ -231,3 +231,52 @@ a.service-cat:hover,a.service-cat:focus-visible{translate:0 -4px;border-color:va
 .catalog-head h3{font-size:clamp(28px,2.6vw,38px);letter-spacing:-1px;margin-top:10px}
 @media(max-width:900px){.service-cats{grid-template-columns:1fr;gap:14px;margin-bottom:48px}.service-cat{padding:26px 24px 22px}.service-cat strong{font-size:26px}}
 @media(max-width:700px){.service-cat strong{font-size:24px}.service-cat p{font-size:14.5px}.service-cat-tags i{font-size:11px;padding:5px 10px}.catalog-head h3{font-size:26px}.catalog-head{scroll-margin-top:90px}}
+
+/* ---------- 15. Atmósfera: cada superficie azul con su propio degradado difuso ---------- */
+/* Escala tonal: footer (más profundo) < contacto < proceso < portada < nosotros (más luminoso). Nada plano, ningún borde duro. */
+.site-header{background:linear-gradient(180deg,#083a70f5 0%,#0a4585ee 100%)}
+.hero{background:
+  radial-gradient(1100px 720px at 82% 18%,#2a8fe0 0%,#1a74c9 28%,transparent 62%),
+  radial-gradient(900px 600px at 6% 92%,#1f9de8 0%,#146fc0 30%,transparent 65%),
+  radial-gradient(700px 500px at 45% -10%,#1b6dbf 0%,transparent 60%),
+  linear-gradient(180deg,#0a4585 0%,#0b4a8a 55%,#0c4c8e 100%)}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:140px;pointer-events:none;background:linear-gradient(180deg,transparent,#0b4787)}
+.hero-grid{opacity:.7}
+.solution-strip{border-top:0;background:
+  radial-gradient(900px 260px at 50% -40%,#1f7fd4 0%,transparent 70%),
+  linear-gradient(180deg,#0b4787 0%,#0a4079 100%)}
+.solution-item{border-right-color:#8fc9f52e}
+.process-section{background:
+  radial-gradient(1000px 640px at 92% -10%,#1f86dc 0%,#1468b8 30%,transparent 62%),
+  radial-gradient(800px 560px at -5% 105%,#2a9fe8 0%,#146cbd 28%,transparent 62%),
+  radial-gradient(600px 400px at 50% 50%,#0e5aa5 0%,transparent 70%),
+  linear-gradient(170deg,#0a4482 0%,#083b70 100%)}
+.process-section:after{border-color:#8fc9f51a;box-shadow:0 0 0 80px #8fc9f506,0 0 0 160px #8fc9f504}
+.marquee{border-block:0;background:linear-gradient(90deg,#083b70,#0d5299 50%,#083b70)}
+.international-image{background:
+  radial-gradient(600px 500px at 80% 10%,#1f86dc 0%,transparent 60%),
+  linear-gradient(160deg,#0f5aa3 0%,#0b4787 100%)}
+.about-section{background:
+  radial-gradient(1000px 700px at 12% 110%,#2aa2ea 0%,#1a7ad0 26%,transparent 60%),
+  radial-gradient(800px 600px at 100% 0%,#1f86dc 0%,transparent 58%),
+  linear-gradient(180deg,#0d549a 0%,#0f5aa3 50%,#0c4d8f 100%)}
+.about-line{background:linear-gradient(120deg,#0f5aa3cc,#0b4787cc 70%);backdrop-filter:none}
+.about-line:hover,.about-line:focus-visible{background:linear-gradient(120deg,#1a73c6cc,#0f57a0cc 70%)}
+.contact-section{background:linear-gradient(180deg,#f5f9fd 0%,#eaf3fb 100%)}
+.contact-panel{background:
+  radial-gradient(900px 600px at 100% 100%,#1f86dc 0%,#1468b8 28%,transparent 62%),
+  radial-gradient(700px 500px at 0% 0%,#1466b3 0%,transparent 60%),
+  linear-gradient(160deg,#0a4585 0%,#083b70 100%)}
+.contact-card{background:#ffffff0f;border-color:#8fc9f540}
+.contact-card:hover{background:#ffffff1c;border-color:#8fc9f580}
+.site-footer{background:
+  radial-gradient(900px 400px at 50% -20%,#0f5aa3 0%,transparent 65%),
+  linear-gradient(180deg,#083b70 0%,#062f5c 100%)}
+.footer-top{border-bottom-color:#8fc9f52a}
+.service-cat.is-active,a.service-cat{background:
+  radial-gradient(600px 380px at 100% 0%,#2a8fe0 0%,#1a74c9 30%,transparent 62%),
+  radial-gradient(500px 360px at 0% 100%,#1f9de8 0%,transparent 60%),
+  linear-gradient(135deg,#0c4d8f,#083c73)}
+.globe-note{background:linear-gradient(110deg,#0b4685e8,#0f579fb8)}
+.step-icon{background:#ffffff08}
+@media(max-width:700px){.hero::after{height:90px}}
