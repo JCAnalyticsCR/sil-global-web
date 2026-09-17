@@ -61,7 +61,7 @@
   armarReveals();
   reduced.addEventListener('change', () => { if (reduced.matches) root.classList.remove('js-reveal'); });
 
-  /* ---------- Capa PC: cursor-retícula, relieve, foco. Solo con puntero real. ---------- */
+  /* ---------- Capa PC: relieve 3D y foco de luz. Solo con puntero real; sin cursor propio. ---------- */
   function montarRelieve() {
     if (!pcAnimado.matches) return;
     let relieveActual = null, relievePendiente = 0, ultimoBlanco = null, ultimoX = 0, ultimoY = 0;
@@ -95,6 +95,9 @@
       if (!relievePendiente) relievePendiente = requestAnimationFrame(procesar);
     }, { passive: true });
   }
+  montarRelieve();
+  pcAnimado.addEventListener('change', () => { if (pcAnimado.matches) montarRelieve(); });
+
   /* ---------- Pulso háptico al preparar la consulta (doble candado) ---------- */
   function pulso(patron) {
     if (!navigator.vibrate || reduced.matches) return;
