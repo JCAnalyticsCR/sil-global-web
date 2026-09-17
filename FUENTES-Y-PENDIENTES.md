@@ -14,7 +14,9 @@ Correspondencia de contenido:
 - Sección 5: servicios de gestión comercial y logística publicados inicialmente en 2023. **Su vigencia actual debe confirmarse.**
 - Sección 6: inspiración para titulares como «Soluciones que protegen lo que más importa» y «Tu aliado en logística».
 
-«Tu negocio sin límites», «Empaque local. Visión global», los demás textos creativos y la organización de la página son propuestas editoriales de esta maqueta, no citas literales ni afirmaciones de resultados comprobados.
+El copy de portada («Tu producto, al mundo», «Distribuimos al por mayor… cualquier tipo de producto») se redactó el 17 de septiembre de 2026 a partir de la descripción del negocio dada por la responsable del proyecto: distribución de productos de embalaje y empaque, mayoreo, tienda al por mayor y de suministros, y bróker en compras internacionales que gestiona la importación y exportación de cualquier producto para sus clientes. «Empaque local. Visión global», los demás textos creativos y la organización de la página son propuestas editoriales de esta maqueta, no citas literales ni afirmaciones de resultados comprobados.
+
+La sección «Servicios» arranca con una sola categoría (Embalaje: bolsas, cintas, plásticos y embalaje industrial). Las demás categorías se agregarán cuando el cliente las defina; la tarjeta «Más categorías, pronto» es un marcador de posición deliberado.
 
 ## Decisiones de alcance
 

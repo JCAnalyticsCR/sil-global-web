@@ -8,8 +8,8 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 
 ## Qué se puede probar
 
-- Portada azul profundo y dorado, globo ilustrativo con conexiones animadas y movimiento sutil con el puntero (se desactiva si el sistema pide movimiento reducido).
-- Catálogo de 13 productos: 7 de bolsas, 2 de cintas y 4 de embalaje industrial.
+- Portada en el azul del logo con acentos dorados, globo ilustrativo con conexiones animadas y movimiento sutil con el puntero (se desactiva si el sistema pide movimiento reducido).
+- Sección «Servicios» por categorías (hoy: Embalaje) con catálogo de 13 productos: 7 de bolsas, 2 de cintas y 4 de embalaje industrial.
 - Filtros por categoría, buscador que tolera búsquedas sin tildes y ficha de detalle por producto.
 - Secciones de acompañamiento comercial, bróker de compras internacionales, presentación («Nosotros», banda oscura con las dos líneas de negocio como tarjetas que enlazan a su sección) y contacto.
 - Formulario que **prepara** un mensaje y abre WhatsApp: no envía nada solo, no guarda datos y no usa servidor de formularios. La persona revisa y envía desde WhatsApp.
@@ -33,7 +33,7 @@ python -m http.server 8000
 | Archivo | Contenido |
 |---|---|
 | `index.html` | Estructura, textos de secciones, identificador gráfico y enlaces de contacto |
-| `styles.css` | Estilo base y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy`, `--gold`, `--paper`, `--ink`, `--green`) |
+| `styles.css` | Estilo base y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy` (azul del logo), `--gold`, `--paper`, `--ink`, `--green`) |
 | `tipografia.css` | Familias tipográficas y escala de tamaños por breakpoint. La portada conserva sus tamaños |
 | `cine.css` | Capa cinematográfica. Constantes de movimiento únicas (`--dur-*`, `--ease-*`) al inicio; capa PC bajo `(min-width:1024px) and (hover:hover) and (prefers-reduced-motion:no-preference)` |
 | `cine.js` | Barra de progreso, tinte por sección, reveals de escritorio, cursor-retícula, relieve y foco. Mejora progresiva: sin él la página se ve completa y quieta |
