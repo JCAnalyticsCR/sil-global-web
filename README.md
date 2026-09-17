@@ -1,0 +1,51 @@
+# SIL Global · Propuesta de sitio web (prototipo)
+
+Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista de embalaje y empaque, y bróker en compras internacionales (Costa Rica).
+
+**Ver la propuesta en vivo → https://jcanalyticscr.github.io/sil-global-web/**
+
+> Esto es un **prototipo de diseño**, no un sitio en producción. No hay dominio, hospedaje definitivo, analítica, carrito, pagos ni base de datos. Los textos, ilustraciones y el identificador gráfico están pendientes de aprobación del cliente.
+
+## Qué se puede probar
+
+- Portada azul profundo y dorado, globo ilustrativo con conexiones animadas y movimiento sutil con el puntero (se desactiva si el sistema pide movimiento reducido).
+- Catálogo de 13 productos: 7 de bolsas, 2 de cintas y 4 de embalaje industrial.
+- Filtros por categoría, buscador que tolera búsquedas sin tildes y ficha de detalle por producto.
+- Secciones de acompañamiento comercial, bróker de compras internacionales, presentación y contacto.
+- Formulario que **prepara** un mensaje y abre WhatsApp: no envía nada solo, no guarda datos y no usa servidor de formularios. La persona revisa y envía desde WhatsApp.
+- Navegación responsive de 320 a 1920 px, con menú móvil.
+
+## Stack
+
+HTML, CSS y JavaScript sin dependencias ni paso de compilación. Las tipografías se resuelven con las disponibles en el dispositivo (referencias Arial/Helvetica y Georgia). Las ilustraciones son SVG propios; el globo es un WebP decorativo.
+
+## Correr en local
+
+No hay que instalar nada. Abrí `index.html` en el navegador manteniendo `styles.css`, `app.js` y `assets/` en la misma ubicación. Si preferís servirlo:
+
+```bash
+python -m http.server 8000
+```
+
+## Estructura
+
+| Archivo | Contenido |
+|---|---|
+| `index.html` | Estructura, textos de secciones, identificador gráfico y enlaces de contacto |
+| `styles.css` | Estilo y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy`, `--gold`, `--paper`, `--ink`, `--green`) |
+| `app.js` | Catálogo `PRODUCTS`, filtros, ventanas y `CONTACT.whatsapp` |
+| `assets/` | Globo e ilustraciones SVG editables |
+| `LEEME.md` | Detalle funcional y notas previas a publicar |
+| `FUENTES-Y-PENDIENTES.md` | Origen del contenido, decisiones de alcance y qué falta aprobar |
+
+Al cambiar el teléfono en `app.js`, actualizá también los enlaces de `index.html`.
+
+## Alcance y fuentes
+
+Todo el contenido comercial proviene de la información publicada por SIL Global en su perfil de Facebook, aportada por el cliente. No se verificó de forma independiente ni se añadieron precios, plazos, certificaciones, testimonios ni cifras. El detalle completo está en [`FUENTES-Y-PENDIENTES.md`](FUENTES-Y-PENDIENTES.md).
+
+La página lleva `noindex, nofollow`: es una propuesta para revisión, no busca posicionarse en buscadores.
+
+---
+
+Propuesta preparada por **JC Analytics**.

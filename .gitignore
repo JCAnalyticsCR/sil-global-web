@@ -1,0 +1,13 @@
+# Contexto privado (nunca se publica)
+CLAUDE.local.md
+.claude/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Editores
+.vscode/
+.idea/

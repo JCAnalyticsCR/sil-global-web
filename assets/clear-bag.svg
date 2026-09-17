@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 330" fill="none"><defs>
+<linearGradient id="silver" x1="0" x2="1"><stop stop-color="#bdc7c9"/><stop offset=".22" stop-color="#f9fbfa"/><stop offset=".48" stop-color="#dde4e3"/><stop offset=".7" stop-color="#fbfcfa"/><stop offset="1" stop-color="#adb9bb"/></linearGradient>
+<linearGradient id="kraft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0bf88"/><stop offset=".48" stop-color="#be925e"/><stop offset="1" stop-color="#9f713e"/></linearGradient>
+<linearGradient id="kraftlight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eed6a8"/><stop offset="1" stop-color="#c29b68"/></linearGradient>
+<linearGradient id="clear" x1="0" x2="1"><stop stop-color="#d5dfe0" stop-opacity=".65"/><stop offset=".4" stop-color="#fff" stop-opacity=".95"/><stop offset=".8" stop-color="#e4edeb" stop-opacity=".3"/><stop offset="1" stop-color="#afc4c7" stop-opacity=".7"/></linearGradient>
+<linearGradient id="dark" x1="0" x2="1"><stop stop-color="#0e2836"/><stop offset=".4" stop-color="#324956"/><stop offset=".75" stop-color="#1c303c"/><stop offset="1" stop-color="#071d29"/></linearGradient>
+<filter id="shadow" x="-50%" y="-50%" width="200%" height="230%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs><ellipse cx="222" cy="274" rx="122" ry="13" fill="#132a34" opacity=".13" filter="url(#shadow)"/><path d="M144 93l144-5 21 174-159 8Z" fill="url(#clear)" stroke="#bdcbcd"/><path d="M153 105l126-5M160 252l136-5" stroke="#b7cace" stroke-width="2"/><path d="M150 123l10 123M169 121l7 105M288 118l10 125" stroke="white" stroke-width="3" opacity=".6"/><path d="M141 100l-22 154 30 16" fill="#dce7e5" opacity=".3" stroke="#bbcecc"/></svg>
