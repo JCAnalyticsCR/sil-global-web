@@ -14,6 +14,7 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 - Secciones de acompañamiento comercial, bróker de compras internacionales, presentación y contacto.
 - Formulario que **prepara** un mensaje y abre WhatsApp: no envía nada solo, no guarda datos y no usa servidor de formularios. La persona revisa y envía desde WhatsApp.
 - Navegación responsive de 320 a 1920 px, con menú móvil.
+- Capa cinematográfica (`cine.css` + `cine.js`): tinte ambiente que cambia por sección, tipografía fantasma con deriva por scroll, grano de película, reveals, cinta de líneas de producto, riel del proceso que se dibuja, marco de visor en la ilustración internacional y — solo en PC con puntero real — cursor-retícula, relieve 3D en tarjetas y foco de luz en el panel de contacto. Todo respeta `prefers-reduced-motion` y el catálogo/formulario se mantienen quietos a propósito.
 
 ## Stack
 
@@ -32,7 +33,9 @@ python -m http.server 8000
 | Archivo | Contenido |
 |---|---|
 | `index.html` | Estructura, textos de secciones, identificador gráfico y enlaces de contacto |
-| `styles.css` | Estilo y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy`, `--gold`, `--paper`, `--ink`, `--green`) |
+| `styles.css` | Estilo base y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy`, `--gold`, `--paper`, `--ink`, `--green`) |
+| `cine.css` | Capa cinematográfica. Constantes de movimiento únicas (`--dur-*`, `--ease-*`) al inicio; capa PC bajo `(min-width:1024px) and (hover:hover) and (prefers-reduced-motion:no-preference)` |
+| `cine.js` | Barra de progreso, tinte por sección, reveals de escritorio, cursor-retícula, relieve y foco. Mejora progresiva: sin él la página se ve completa y quieta |
 | `app.js` | Catálogo `PRODUCTS`, filtros, ventanas y `CONTACT.whatsapp` |
 | `assets/` | Globo, ilustraciones SVG y el logo en dos variantes (`logo-sil-global.svg` original, `logo-sil-global-dark.svg` para fondo navy) |
 | `LEEME.md` | Detalle funcional y notas previas a publicar |

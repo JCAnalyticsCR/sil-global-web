@@ -26,6 +26,8 @@ El diseño se puede recorrer sin conexión. Abrir WhatsApp o Facebook requiere c
 
 `app.js`: catálogo `PRODUCTS`, comportamiento de filtros y ventanas, y número `CONTACT.whatsapp` utilizado para preparar consultas. Al cambiar el teléfono, actualizá también los enlaces de `index.html`.
 
+`cine.css` y `cine.js`: capa cinematográfica. Las duraciones y curvas viven una sola vez en `:root` de `cine.css` (`--dur-micro/drawer/section/scene`); si una animación necesita otra duración, está mal pensada. Los tintes por sección se declaran en `data-tinte` de cada `<section>` (dorado `#e1b66b` o cian `#58bff5`, ambos claros: el texto encima siempre es navy). El grano es un SVG en data-URI, cero peticiones. Nada de esto se ejecuta en móvil salvo los reveals CSS (`animation-timeline: view()`), y nada se mueve con «reducir movimiento» activado.
+
 `assets/`: globo, ilustraciones SVG editables y el logo en dos variantes: `logo-sil-global.svg` (colores originales, para fondos claros) y `logo-sil-global-dark.svg` (adaptado al navy del sitio). El logo está recreado en SVG a partir del logo aportado por el cliente; el texto se ajusta con `textLength`, así que el ancho se mantiene aunque cambie la tipografía disponible. Las ilustraciones de producto no son fotografías reales.
 
 No se incluyen archivos de fuentes ni dependencias externas. Las tipografías se resuelven con las disponibles en el dispositivo, usando Arial/Helvetica y Georgia como referencias.
@@ -38,4 +40,4 @@ El HTML lleva `noindex, nofollow` y una nota de prototipo. No se ha configurado 
 
 ## Revisión técnica
 
-Se revisó la versión independiente en Chromium de escritorio en modo sin interfaz: filtros, buscador, detalle de producto, cambio al formulario, composición del enlace de WhatsApp, cierre de ventanas, menú móvil, carga de imágenes y anchuras de 320 a 1920 píxeles. No se enviaron mensajes reales durante las pruebas. Esto no sustituye una revisión en dispositivos reales, otros navegadores ni una auditoría de accesibilidad completa.
+Capa cinematográfica revisada en Chromium: escritorio 1400 px con puntero (cursor-retícula, relieve, foco), móvil 390 px sin desbordamiento horizontal, y `--force-prefers-reduced-motion` con todo el contenido visible y quieto. Revisión previa de la maqueta base en Chromium de escritorio en modo sin interfaz: filtros, buscador, detalle de producto, cambio al formulario, composición del enlace de WhatsApp, cierre de ventanas, menú móvil, carga de imágenes y anchuras de 320 a 1920 píxeles. No se enviaron mensajes reales durante las pruebas. Esto no sustituye una revisión en dispositivos reales, otros navegadores ni una auditoría de accesibilidad completa.
