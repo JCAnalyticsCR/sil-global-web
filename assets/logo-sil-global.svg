@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 106" role="img" aria-label="SIL Global — Servicios Integrados de Logística Global">
+  <defs>
+    <linearGradient id="lgl-sil" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1a4f9c"/><stop offset="1" stop-color="#2b9de4"/></linearGradient>
+    <linearGradient id="lgl-sw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3cbdf2"/><stop offset="1" stop-color="#cdefff"/></linearGradient>
+  </defs>
+  <text x="8" y="82" font-family="'Arial Black',Arial,Helvetica,sans-serif" font-weight="900" font-style="italic" font-size="80" textLength="136" lengthAdjust="spacingAndGlyphs" fill="url(#lgl-sil)">SIL</text>
+  <text x="150" y="82" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="32" textLength="94" lengthAdjust="spacingAndGlyphs" fill="#1b7fd4">Global</text>
+  <path d="M0 74C24 26 78 4 152 22 84 12 34 34 10 86Z" fill="url(#lgl-sw)"/>
+  <text x="125" y="101" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-style="italic" font-size="11.2" textLength="238" lengthAdjust="spacingAndGlyphs" fill="#4d4d4d">Servicios Integrados de Logística Global</text>
+</svg>

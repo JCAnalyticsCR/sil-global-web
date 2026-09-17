@@ -20,19 +20,19 @@ El diseño se puede recorrer sin conexión. Abrir WhatsApp o Facebook requiere c
 
 ## Editar
 
-`index.html`: estructura, textos de secciones, identificador gráfico y enlaces de contacto.
+`index.html`: estructura, textos de secciones, logo (símbolo `#logo-sil`, versión para fondo oscuro) y enlaces de contacto.
 
 `styles.css`: estilo y adaptación de pantallas. Los colores principales están al comienzo, en `:root`: `--navy`, `--gold`, `--paper`, `--ink` y `--green`.
 
 `app.js`: catálogo `PRODUCTS`, comportamiento de filtros y ventanas, y número `CONTACT.whatsapp` utilizado para preparar consultas. Al cambiar el teléfono, actualizá también los enlaces de `index.html`.
 
-`assets/`: globo e ilustraciones SVG editables. Los SVG no son fotografías de productos reales ni representan especificaciones de una marca.
+`assets/`: globo, ilustraciones SVG editables y el logo en dos variantes: `logo-sil-global.svg` (colores originales, para fondos claros) y `logo-sil-global-dark.svg` (adaptado al navy del sitio). El logo está recreado en SVG a partir del logo aportado por el cliente; el texto se ajusta con `textLength`, así que el ancho se mantiene aunque cambie la tipografía disponible. Las ilustraciones de producto no son fotografías reales.
 
 No se incluyen archivos de fuentes ni dependencias externas. Las tipografías se resuelven con las disponibles en el dispositivo, usando Arial/Helvetica y Georgia como referencias.
 
 ## Antes de publicar
 
-Confirmar los datos comerciales y la vigencia de los servicios con el cliente. Reemplazar el identificador gráfico provisional por el logo autorizado y las ilustraciones por fotografías o recursos aprobados. Confirmar canales de atención, disponibilidad y condiciones comerciales. El correo disputado no se incluyó.
+Confirmar los datos comerciales y la vigencia de los servicios con el cliente. Si el cliente entrega el logo en vectorial (AI/SVG), sustituir la recreación por el archivo oficial para fidelidad exacta de trazos. Reemplazar las ilustraciones por fotografías o recursos aprobados. Confirmar canales de atención, disponibilidad y condiciones comerciales. El correo disputado no se incluyó.
 
 El HTML lleva `noindex, nofollow` y una nota de prototipo. No se ha configurado dominio, hospedaje, analítica, pagos, carrito, administración de inventario ni base de datos. La ficha `FUENTES-Y-PENDIENTES.md` explica el alcance del contenido.
 

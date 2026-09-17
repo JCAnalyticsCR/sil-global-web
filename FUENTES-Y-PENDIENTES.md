@@ -28,7 +28,7 @@ Los verbos «Buscamos», «Negociamos», «Coordinamos» y «Te asesoramos» agr
 
 ## Recursos visuales
 
-El monograma «S» y la composición tipográfica de SIL Global son un identificador provisional inspirado en la referencia; no constituyen un logo oficial entregado por el cliente.
+El logo de SIL Global (logotipo «SIL» con swoosh, «Global» y el lema «Servicios Integrados de Logística Global») es una recreación vectorial del logo aportado por el cliente el 17 de septiembre de 2026. Para el header sobre fondo navy se preparó una variante aclarada del mismo degradado azul; los colores originales se conservan en `assets/logo-sil-global.svg`. Cuando el cliente entregue el archivo vectorial oficial, debe sustituir la recreación.
 
 Las ilustraciones de productos y comercio internacional fueron elaboradas para esta propuesta. No representan fotografías de inventario, marcas, instalaciones, flota ni operaciones documentadas de SIL Global.
 
@@ -36,4 +36,4 @@ El globo se generó con geometría cartográfica de Natural Earth de baja resolu
 
 ## Pendiente de aprobación
 
-Validar logo, paleta, textos comerciales, vigencia de servicios, canales de atención y datos de catálogo; obtener fotografías autorizadas y las condiciones comerciales que deban comunicarse al público. Decidir dominio y publicación por separado.
+Validar la fidelidad del logo recreado frente al original, la paleta, los textos comerciales, vigencia de servicios, canales de atención y datos de catálogo; obtener fotografías autorizadas y las condiciones comerciales que deban comunicarse al público. Decidir dominio y publicación por separado.

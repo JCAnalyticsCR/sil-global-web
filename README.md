@@ -4,7 +4,7 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 
 **Ver la propuesta en vivo → https://jcanalyticscr.github.io/sil-global-web/**
 
-> Esto es un **prototipo de diseño**, no un sitio en producción. No hay dominio, hospedaje definitivo, analítica, carrito, pagos ni base de datos. Los textos, ilustraciones y el identificador gráfico están pendientes de aprobación del cliente.
+> Esto es un **prototipo de diseño**, no un sitio en producción. No hay dominio, hospedaje definitivo, analítica, carrito, pagos ni base de datos. Los textos y las ilustraciones de producto están pendientes de aprobación del cliente. El logo es una recreación vectorial del logo oficial de SIL Global, adaptado al fondo oscuro del sitio.
 
 ## Qué se puede probar
 
@@ -34,7 +34,7 @@ python -m http.server 8000
 | `index.html` | Estructura, textos de secciones, identificador gráfico y enlaces de contacto |
 | `styles.css` | Estilo y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy`, `--gold`, `--paper`, `--ink`, `--green`) |
 | `app.js` | Catálogo `PRODUCTS`, filtros, ventanas y `CONTACT.whatsapp` |
-| `assets/` | Globo e ilustraciones SVG editables |
+| `assets/` | Globo, ilustraciones SVG y el logo en dos variantes (`logo-sil-global.svg` original, `logo-sil-global-dark.svg` para fondo navy) |
 | `LEEME.md` | Detalle funcional y notas previas a publicar |
 | `FUENTES-Y-PENDIENTES.md` | Origen del contenido, decisiones de alcance y qué falta aprobar |
 
