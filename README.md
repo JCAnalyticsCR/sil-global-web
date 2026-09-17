@@ -14,7 +14,7 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 - Secciones de acompañamiento comercial, bróker de compras internacionales, presentación («Nosotros», banda oscura con las dos líneas de negocio como tarjetas que enlazan a su sección) y contacto.
 - Formulario que **prepara** un mensaje y abre WhatsApp: no envía nada solo, no guarda datos y no usa servidor de formularios. La persona revisa y envía desde WhatsApp.
 - Navegación responsive de 320 a 1920 px, con menú móvil.
-- Capa cinematográfica (`cine.css` + `cine.js`): tinte ambiente que cambia por sección, tipografía fantasma con deriva por scroll, grano de película, reveals, cinta de líneas de producto, riel del proceso que se dibuja, marco de visor en la ilustración internacional y — solo en PC con puntero real — cursor-retícula, relieve 3D en tarjetas y foco de luz en el panel de contacto. Todo respeta `prefers-reduced-motion` y el catálogo/formulario se mantienen quietos a propósito.
+- Capa cinematográfica (`cine.css` + `cine.js`): tinte ambiente que cambia por sección, tipografía fantasma con deriva por scroll, grano de película, reveals, cinta de líneas de producto, riel del proceso que se dibuja, marco de visor en la ilustración internacional y — solo en PC con puntero real — relieve 3D en tarjetas y foco de luz en el panel de contacto (el cursor personalizado se retiró a pedido del cliente). Todo respeta `prefers-reduced-motion` y el catálogo/formulario se mantienen quietos a propósito.
 
 ## Stack
 

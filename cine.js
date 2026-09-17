@@ -59,50 +59,18 @@
     setTimeout(() => $$('.reveal:not(.is-in), .process-rail:not(.is-in)').forEach((el) => el.classList.add('is-in')), 6000);
   }
   armarReveals();
-  reduced.addEventListener('change', () => { if (reduced.matches) { root.classList.remove('js-reveal'); root.classList.remove('cursor-vivo'); } });
+  reduced.addEventListener('change', () => { if (reduced.matches) root.classList.remove('js-reveal'); });
 
   /* ---------- Capa PC: cursor-retícula, relieve, foco. Solo con puntero real. ---------- */
-  let pcMontada = false;
-  function montarCapaPC() {
-    if (pcMontada || !pcAnimado.matches) return;
-    pcMontada = true;
-
-    const punto = document.createElement('div'); punto.className = 'mira-punto'; punto.setAttribute('aria-hidden', 'true');
-    const mira = document.createElement('div'); mira.className = 'mira'; mira.setAttribute('aria-hidden', 'true');
-    mira.innerHTML = '<i></i><i></i><i></i><i></i><span class="mira-label"></span>';
-    const label = $('.mira-label', mira);
-    document.body.append(punto, mira);
-
-    const REPOSO = 30;
-    const ENGANCHABLE = 'a,button,[data-mira],.product-card,.contact-card,.solution-item,summary,label';
-    let px = innerWidth / 2, py = innerHeight / 2;       // puntero crudo
-    let mx = px, my = py, mw = REPOSO, mh = REPOSO;        // mira suavizada
-    let objetivo = null, raf = 0, vivo = false;
-
-    function tick() {
-      raf = 0;
-      let tx = px, ty = py, tw = REPOSO, th = REPOSO;
-      if (objetivo && objetivo.isConnected) {
-        // getBoundingClientRect por frame SOLO mientras hay enganche real
-        const r = objetivo.getBoundingClientRect();
-        tx = r.left + r.width / 2; ty = r.top + r.height / 2; tw = r.width + 14; th = r.height + 14;
-      }
-      const k = 0.18;
-      mx += (tx - mx) * k; my += (ty - my) * k; mw += (tw - mw) * k; mh += (th - mh) * k;
-      mira.style.transform = `translate3d(${mx.toFixed(1)}px,${my.toFixed(1)}px,0)`;
-      mira.style.setProperty('--mw', `${mw.toFixed(1)}px`); mira.style.setProperty('--mh', `${mh.toFixed(1)}px`);
-      const quieto = Math.abs(tx - mx) + Math.abs(ty - my) + Math.abs(tw - mw) + Math.abs(th - mh) < 0.4;
-      if (!quieto || objetivo) raf = requestAnimationFrame(tick);
-    }
-    const despertar = () => { if (!raf && !document.hidden) raf = requestAnimationFrame(tick); };
-
-    // Relieve 3D + foco: un solo manejador delegado. closest() DENTRO del gate de rAF.
+  function montarRelieve() {
+    if (!pcAnimado.matches) return;
     let relieveActual = null, relievePendiente = 0, ultimoBlanco = null, ultimoX = 0, ultimoY = 0;
     const panel = $('.contact-panel');
-    function procesarRelieve() {
+    function soltar(el) { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); el.style.setProperty('--foco', '0'); }
+    function procesar() {
       relievePendiente = 0;
       const el = ultimoBlanco && ultimoBlanco.closest ? ultimoBlanco.closest('[data-relieve]') : null;
-      if (el !== relieveActual) { if (relieveActual) soltarRelieve(relieveActual); relieveActual = el; }
+      if (el !== relieveActual) { if (relieveActual) soltar(relieveActual); relieveActual = el; }
       if (el) {
         const r = el.getBoundingClientRect();
         const nx = (ultimoX - r.left) / r.width, ny = (ultimoY - r.top) / r.height;
@@ -121,40 +89,12 @@
         } else panel.style.setProperty('--luz', '0');
       }
     }
-    function soltarRelieve(el) { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); el.style.setProperty('--foco', '0'); }
-
     addEventListener('pointermove', (e) => {
       if (e.pointerType !== 'mouse') return;
-      px = e.clientX; py = e.clientY;
-      punto.style.transform = `translate3d(${px}px,${py}px,0)`;
-      if (!vivo) { vivo = true; if (!document.querySelector('dialog[open]')) root.classList.add('cursor-vivo'); }
-      ultimoBlanco = e.target; ultimoX = px; ultimoY = py;
-      if (!relievePendiente) relievePendiente = requestAnimationFrame(procesarRelieve);
-      despertar();
+      ultimoBlanco = e.target; ultimoX = e.clientX; ultimoY = e.clientY;
+      if (!relievePendiente) relievePendiente = requestAnimationFrame(procesar);
     }, { passive: true });
-    addEventListener('pointerover', (e) => {
-      const t = e.target && e.target.closest ? e.target.closest(ENGANCHABLE) : null;
-      objetivo = t && !t.closest('dialog') && t.offsetWidth < innerWidth * 0.7 ? t : null;
-      mira.classList.toggle('is-locked', !!objetivo);
-      label.textContent = objetivo ? objetivo.dataset.mira || '' : '';
-      despertar();
-    }, { passive: true });
-    addEventListener('pointerleave', () => { objetivo = null; mira.classList.remove('is-locked'); }, { passive: true });
-    document.addEventListener('mouseleave', () => root.classList.remove('cursor-vivo'));
-    document.addEventListener('mouseenter', () => { if (vivo && !document.querySelector('dialog[open]')) root.classList.add('cursor-vivo'); });
-    document.addEventListener('visibilitychange', () => { if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; } else despertar(); });
-
-    // Un <dialog> vive en el top layer: con uno abierto vuelve el cursor nativo.
-    const dialogObs = new MutationObserver(() => {
-      const abierto = !!document.querySelector('dialog[open]');
-      root.classList.toggle('cursor-vivo', vivo && !abierto);
-      if (abierto) { objetivo = null; mira.classList.remove('is-locked'); }
-    });
-    $$('dialog').forEach((d) => dialogObs.observe(d, { attributes: true, attributeFilter: ['open'] }));
   }
-  montarCapaPC();
-  pcAnimado.addEventListener('change', () => { if (pcAnimado.matches) montarCapaPC(); else root.classList.remove('cursor-vivo'); });
-
   /* ---------- Pulso háptico al preparar la consulta (doble candado) ---------- */
   function pulso(patron) {
     if (!navigator.vibrate || reduced.matches) return;
