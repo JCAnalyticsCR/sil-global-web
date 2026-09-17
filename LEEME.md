@@ -26,11 +26,13 @@ El diseño se puede recorrer sin conexión. Abrir WhatsApp o Facebook requiere c
 
 `app.js`: catálogo `PRODUCTS`, comportamiento de filtros y ventanas, y número `CONTACT.whatsapp` utilizado para preparar consultas. Al cambiar el teléfono, actualizá también los enlaces de `index.html`.
 
+`tipografia.css`: familias y escala de tamaños (móvil, tablet, escritorio).
+
 `cine.css` y `cine.js`: capa cinematográfica. Las duraciones y curvas viven una sola vez en `:root` de `cine.css` (`--dur-micro/drawer/section/scene`); si una animación necesita otra duración, está mal pensada. Los tintes por sección se declaran en `data-tinte` de cada `<section>` (dorado `#e1b66b` o cian `#58bff5`, ambos claros: el texto encima siempre es navy). El grano es un SVG en data-URI, cero peticiones. Nada de esto se ejecuta en móvil salvo los reveals CSS (`animation-timeline: view()`), y nada se mueve con «reducir movimiento» activado.
 
 `assets/`: globo, ilustraciones SVG editables y el logo en dos variantes: `logo-sil-global.svg` (colores originales, para fondos claros) y `logo-sil-global-dark.svg` (adaptado al navy del sitio). El logo está recreado en SVG a partir del logo aportado por el cliente; el texto se ajusta con `textLength`, así que el ancho se mantiene aunque cambie la tipografía disponible. Las ilustraciones de producto no son fotografías reales.
 
-No se incluyen archivos de fuentes ni dependencias externas. Las tipografías se resuelven con las disponibles en el dispositivo, usando Arial/Helvetica y Georgia como referencias.
+Tipografías: **Sora** (títulos, etiquetas, botones), **Manrope** (texto corrido) y **Fraunces** itálica (acentos serif), servidas desde Google Fonts con `display=swap`. Sin conexión, el sitio cae a Arial/Helvetica y Georgia sin romperse. La escala de tamaños vive en `tipografia.css`: se amplió en todas las secciones salvo la portada, cuyos tamaños no cambian. Para autohospedar las fuentes (recomendado al publicar en dominio propio), descargar los `.woff2` y reemplazar el `<link>` de `index.html` por `@font-face` en `tipografia.css`.
 
 ## Antes de publicar
 

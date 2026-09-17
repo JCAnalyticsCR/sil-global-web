@@ -18,7 +18,7 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 
 ## Stack
 
-HTML, CSS y JavaScript sin dependencias ni paso de compilación. Las tipografías se resuelven con las disponibles en el dispositivo (referencias Arial/Helvetica y Georgia). Las ilustraciones son SVG propios; el globo es un WebP decorativo.
+HTML, CSS y JavaScript sin paso de compilación. Única dependencia externa: las tipografías Sora, Manrope y Fraunces desde Google Fonts (con fallback a Arial/Georgia si no cargan). Las ilustraciones son SVG propios; el globo es un WebP decorativo.
 
 ## Correr en local
 
@@ -34,6 +34,7 @@ python -m http.server 8000
 |---|---|
 | `index.html` | Estructura, textos de secciones, identificador gráfico y enlaces de contacto |
 | `styles.css` | Estilo base y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy`, `--gold`, `--paper`, `--ink`, `--green`) |
+| `tipografia.css` | Familias tipográficas y escala de tamaños por breakpoint. La portada conserva sus tamaños |
 | `cine.css` | Capa cinematográfica. Constantes de movimiento únicas (`--dur-*`, `--ease-*`) al inicio; capa PC bajo `(min-width:1024px) and (hover:hover) and (prefers-reduced-motion:no-preference)` |
 | `cine.js` | Barra de progreso, tinte por sección, reveals de escritorio, cursor-retícula, relieve y foco. Mejora progresiva: sin él la página se ve completa y quieta |
 | `app.js` | Catálogo `PRODUCTS`, filtros, ventanas y `CONTACT.whatsapp` |
