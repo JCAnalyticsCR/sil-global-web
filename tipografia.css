@@ -74,12 +74,6 @@ h3{font-size:24px}
 .hud{font-size:9.5px;letter-spacing:2px;top:20px}
 
 /* Nosotros */
-.about-statement{font-size:clamp(40px,4.6vw,68px);letter-spacing:-2.4px}
-.about-statement .serif-accent{letter-spacing:-1px}
-.about-place{font-size:14px;margin-top:34px}
-.about-line strong{font-size:21px}
-.about-line p{font-size:16px;line-height:1.7;max-width:460px}
-.about-line-number{font-size:34px}
 
 /* Contacto */
 .contact-copy h2{font-size:clamp(48px,4.6vw,70px)}
@@ -155,8 +149,6 @@ h3{font-size:24px}
   .international-copy>p:not(.eyebrow){font-size:15.5px}
   .service-details>div{font-size:14.5px}
   .international-image strong{font-size:30px}.international-image .eyebrow{font-size:9.5px}
-  .about-statement{font-size:clamp(36px,10vw,46px);letter-spacing:-1.6px}
-  .about-line strong{font-size:18px}.about-line p{font-size:14.5px}.about-line-number{font-size:28px}
   .contact-copy h2{font-size:clamp(44px,12vw,54px)}
   .contact-copy .eyebrow{font-size:9.5px}.contact-copy>p:not(.eyebrow){font-size:15px}
   .contact-card{min-height:86px}.contact-card strong{font-size:16px}.contact-card small{font-size:9px}

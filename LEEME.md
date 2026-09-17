@@ -14,9 +14,9 @@ El diseño se puede recorrer sin conexión. Abrir WhatsApp o Facebook requiere c
 - Navegación por secciones y menú móvil.
 - Catálogo de 13 entradas: 7 de bolsas, 2 de cintas y 4 de embalaje industrial. La primera vista muestra cuatro destacados.
 - Filtros por categoría, buscador que admite búsquedas sin tildes, vista de detalles y selección de un producto para consultar.
-- Secciones de acompañamiento comercial, bróker de compras internacionales, presentación y contacto.
+- Secciones de acompañamiento comercial, bróker de compras internacionales, presentación («Nosotros», banda oscura con las dos líneas de negocio como tarjetas que enlazan a su sección) y contacto.
 - Formulario que prepara un mensaje y abre WhatsApp. **No envía mensajes automáticamente, no guarda datos y no utiliza un servidor de formularios.** La persona revisa y envía el mensaje en WhatsApp.
-- Accesos al teléfono y al perfil de Facebook publicados en la fuente aportada.
+- Accesos a WhatsApp, teléfono y perfil de Facebook desde la sección de contacto (sin botón flotante: el cliente pidió retirarlo).
 
 ## Editar
 
