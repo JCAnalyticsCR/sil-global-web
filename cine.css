@@ -352,25 +352,34 @@ html{scroll-padding-top:112px}
 @media(max-width:700px){.site-header .header-inner{height:80px}.site-header .brand-logo{height:58px}html{scroll-padding-top:86px}}
 @media(max-width:380px){.site-header .brand-logo{height:50px}}
 
-/* ---------- 22. Nota del globo: integrada como leyenda, sin tarjeta flotante ---------- */
+/* ---------- 22. Nota del globo: etiqueta de vidrio en la esquina, sobre el Pacífico ---------- */
 .globe-caption{display:none!important}
-.globe-note{top:auto!important;right:auto!important;left:50%!important;bottom:-6px;translate:-50% 0;z-index:3;
-  background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;padding:0!important;border-radius:0;
-  display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;white-space:nowrap}
-.globe-note-icon{display:none}
-.globe-note::before{content:'';width:1px;height:26px;background:linear-gradient(180deg,transparent,var(--gold));margin-bottom:4px}
-.globe-note small{font-size:10px!important;letter-spacing:3px!important;color:var(--gold)!important;margin:0!important}
-.globe-note strong{font-size:17px!important;font-weight:500!important;color:#e6f2fd;line-height:1.3}
+.globe-note{position:absolute;top:auto;right:auto;left:-4px;bottom:15%;z-index:3;translate:none;
+  display:flex;align-items:center;gap:12px;padding:10px 16px 10px 10px;border-radius:14px;white-space:nowrap;
+  background:linear-gradient(135deg,#0c3f78d9,#0a2f5ccc);border:1px solid #52dee047;
+  box-shadow:0 14px 34px #021a3a80,inset 0 1px 0 #ffffff14;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.globe-note-icon{position:relative;display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;
+  background:#52dee01f;border:1px solid #52dee066;color:var(--gold);padding:0}
+.globe-note-icon .icon{width:20px;height:20px}
+.globe-note-icon::after{content:'';position:absolute;top:-1px;right:-1px;width:9px;height:9px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 3px #0b3f78,0 0 10px var(--gold)}
+.globe-note>span:last-child{display:flex;flex-direction:column;gap:3px}
+.globe-note small{display:block;font-size:9px;letter-spacing:2.2px;color:var(--gold);margin:0}
+.globe-note strong{display:block;font-size:14.5px;font-weight:600;color:#eef7ff;line-height:1.25}
 .globe-note strong br{display:none}
-@media(max-width:900px){.globe-note{bottom:-2px}.globe-note strong{font-size:14px!important}}
-@media(max-width:700px){.globe-note{bottom:6px}.globe-note::before{height:16px}.globe-note small{font-size:8.5px!important;letter-spacing:2.2px!important}.globe-note strong{font-size:13.5px!important}}
-/* ajuste: leyenda en una sola línea, dentro del hero */
-.globe-note{flex-direction:row!important;gap:14px!important;bottom:14px!important;align-items:center!important}
-.globe-note::before{width:34px;height:1px;margin:0;background:linear-gradient(90deg,transparent,var(--gold))}
-.globe-note::after{content:'';width:34px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-.globe-note>span:last-child{display:flex;align-items:baseline;gap:12px}
-.globe-note strong{font-size:15px!important}
-@media(max-width:700px){.globe-note{bottom:4px!important;gap:8px!important}.globe-note::before,.globe-note::after{width:16px}.globe-note>span:last-child{flex-direction:column;align-items:center;gap:2px}}
+@media(prefers-reduced-motion:no-preference){
+  .globe-note{animation:note-float 6s ease-in-out infinite}
+  .globe-note-icon::after{animation:note-live 2.4s ease-in-out infinite}
+}
+@keyframes note-float{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@keyframes note-live{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:900px){.globe-note{left:0;bottom:12%}}
+@media(max-width:700px){
+  .globe-note{left:2px;bottom:8%;gap:9px;padding:7px 12px 7px 7px;border-radius:12px}
+  .globe-note-icon{width:30px;height:30px}.globe-note-icon .icon{width:16px;height:16px}
+  .globe-note small{font-size:7.5px;letter-spacing:1.6px}
+  .globe-note strong{font-size:12.5px}
+}
 
 /* ---------- 23. Fotos de producto recortadas: llenan la casilla ---------- */
 .product-image.has-photo{background:#eef4fa}
