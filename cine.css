@@ -589,3 +589,10 @@ html{scroll-padding-top:112px}
 /* En pantallas táctiles el :hover «pegado» agrandaba la tarjeta sin mostrar el texto: solo aplica con puntero real */
 @media(hover:hover) and (max-width:900px){.svc:hover{min-height:400px}}
 @media(hover:hover) and (max-width:700px){.svc:hover{min-height:380px}}
+
+/* ---------- 31. Globo: océano en azul de marca y borde luminoso mínimo ---------- */
+.globe-tint{mix-blend-mode:screen;pointer-events:none}
+.globe-rim-glow{opacity:.38;pointer-events:none}
+.globe-rim{opacity:.7;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){.globe-rim-glow{animation:rim-breathe 6s ease-in-out infinite}}
+@keyframes rim-breathe{0%,100%{opacity:.3}50%{opacity:.5}}
