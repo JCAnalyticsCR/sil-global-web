@@ -493,3 +493,32 @@ html{scroll-padding-top:112px}
 
 /* ---------- 28. SEO: texto solo para buscadores y lectores de pantalla ---------- */
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+
+/* ---------- 29. Catálogo por secciones (Empaque / Embalaje) ---------- */
+.catalog-group{grid-column:1/-1;display:flex;align-items:baseline;gap:14px;padding:22px 0 6px;border-bottom:1px solid #0b4a8a1f;margin-bottom:2px}
+.catalog-group:first-child{padding-top:4px}
+.catalog-group-line{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:#1c8f96}
+.catalog-group h3{font-family:var(--font-titles,var(--font-display));font-size:22px;font-weight:700;letter-spacing:-.4px;color:var(--navy-dark);margin:0}
+.catalog-group-count{margin-left:auto;font-size:12.5px;color:#6c7a80}
+@media(max-width:700px){
+  .catalog-group{flex-wrap:wrap;gap:4px 10px;padding-top:16px}
+  .catalog-group-line{width:100%;font-size:9.5px}
+  .catalog-group h3{font-size:18px}
+  .catalog-group-count{font-size:11px}
+}
+/* Pestañas: en celular se desplazan de lado en vez de apretarse */
+@media(max-width:700px){
+  .category-tabs{overflow-x:auto;justify-content:flex-start;gap:6px;scroll-snap-type:x proximity;scrollbar-width:none;margin-inline:-20px;padding-inline:20px}
+  .category-tabs::-webkit-scrollbar{display:none}
+  .category-tab{flex:none;scroll-snap-align:start;font-size:12px;padding:8px 14px}
+}
+/* Tabla de especificaciones en la ficha del producto */
+.product-spec-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:12.5px;line-height:1.45}
+.product-spec-table th{background:var(--navy);color:#fff;font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.4px;text-align:left;padding:8px 10px}
+.product-spec-table th:first-child{border-radius:8px 0 0 0}.product-spec-table th:last-child{border-radius:0 8px 0 0}
+.product-spec-table td{padding:7px 10px;border-bottom:1px solid #e3e8ec;color:#33434c;vertical-align:top}
+.product-spec-table tbody tr:nth-child(even) td{background:#f3f7fa}
+.product-spec-table[hidden]{display:none}
+/* Las tarjetas de servicio abiertas se pueden cliquear completas */
+.svc.is-open,.svc-stage:not(:has(.is-open)) .svc:first-child{cursor:pointer}
+@media(hover:hover){.svc:hover{cursor:pointer}}
