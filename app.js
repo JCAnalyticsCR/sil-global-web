@@ -46,13 +46,13 @@
     { id: "papel-kraft", photo: "fotos/papel-kraft.webp", title: "Papel kraft reforzado con fibra de vidrio", category: "cintas", summary: "Adhesivo activado por agua", description: "El adhesivo activado por agua se adhiere al corrugado incluso en condiciones polvorientas o sucias.", spec: "Consultá anchos y presentaciones.", group: "cintas" }
   ]);
   // Destacados que se muestran antes de «Explorar todo el catálogo»
-  const FEATURED = Object.freeze(["bolsa-papel", "manigueta-rayas", "envases-deli", "vasos-batidos", "film-manual", "burbuja", "cinta-color", "masking"]);
+  const FEATURED = Object.freeze(["bolsa-papel", "envases-deli", "film-manual", "cinta-color"]);
   const CATEGORY_LABELS = Object.freeze({ bolsas: 'Bolsas', desechables: 'Desechables', cintas: 'Cintas', embalaje: 'Embalaje' });
   const CATEGORY_SHORT = Object.freeze({ bolsas: 'BOLSAS', desechables: 'DESECHABLES', cintas: 'CINTAS', embalaje: 'EMBALAJE' });
   // Encabezados dentro del catálogo: línea de negocio + sección
   const GROUP_LINE = Object.freeze({ bolsas: 'Empaque', desechables: 'Empaque', cintas: 'Embalaje', embalaje: 'Embalaje' });
   const GROUP_LABELS = Object.freeze({ bolsas: 'Bolsas', envases: 'Envases para comida', vasos: 'Vasos y suflés', mesa: 'Platos, cubiertos y servilletas', papeles: 'Papeles y malla', paletizado: 'Paletizado', proteccion: 'Protección de carga', cintas: 'Cintas' });
-  const state = { category: 'all', search: '', expanded: false, selectedProduct: null };
+  const state = { category: 'all', search: '', expanded: false, selectedProduct: null, openGroups: new Set() };
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => Array.from(document.querySelectorAll(selector));
   const grid = $('#product-grid');
@@ -66,6 +66,20 @@
   const normalize = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
   const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
 
+  // Cuántas tarjetas se ven por sección antes de «Ver los N de …»
+  const PER_GROUP = 4;
+  function productCard(product) {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'product-card';
+    card.dataset.product = product.id;
+    card.setAttribute('aria-label', `Ver detalles de ${product.title}`);
+    const visual = product.photo ? { src: assetUrl(product.photo), alt: `Fotografía de ${escapeHtml(product.title)}`, cls: ' has-photo' } : { src: assetUrl(product.image), alt: `Ilustración de ${escapeHtml(product.title)}`, cls: '' };
+    card.innerHTML = `<span class="product-image${visual.cls}"><span class="product-category">${CATEGORY_SHORT[product.category]}</span><img src="${visual.src}" alt="${visual.alt}" loading="lazy" width="440" height="330"></span><span class="product-body"><span class="product-title">${escapeHtml(product.title)}</span><span class="product-summary">${escapeHtml(product.summary)}</span><span class="product-bottom"><span>Consultar producto</span><span class="product-arrow">${icon('up-right')}</span></span></span>`;
+    card.addEventListener('click', () => openProduct(product));
+    return card;
+  }
+
   function renderProducts() {
     const term = normalize(state.search);
     const filtered = PRODUCTS.filter((product) => {
@@ -74,33 +88,49 @@
       return matchesCategory && matchesSearch;
     });
     const showAll = state.expanded || state.category !== 'all' || !!term;
-    const shown = showAll ? filtered : FEATURED.map((id) => PRODUCTS.find((p) => p.id === id)).filter(Boolean);
     const fragment = document.createDocumentFragment();
-    let lastGroup = null;
-    shown.forEach((product) => {
-      if (showAll && product.group !== lastGroup) {
-        lastGroup = product.group;
-        const count = filtered.filter((p) => p.group === product.group).length;
+    let visible = 0;
+    if (!showAll) {
+      FEATURED.map((id) => PRODUCTS.find((p) => p.id === id)).filter(Boolean).forEach((p) => { fragment.appendChild(productCard(p)); visible += 1; });
+    } else {
+      // Por secciones: cada una muestra PER_GROUP tarjetas y un botón para ver el resto (la búsqueda muestra todo)
+      const groups = [];
+      filtered.forEach((p) => { const g = groups[groups.length - 1]; if (g && g.id === p.group) g.items.push(p); else groups.push({ id: p.group, items: [p] }); });
+      groups.forEach(({ id, items }) => {
+        const first = items[0];
         const head = document.createElement('div');
         head.className = 'catalog-group';
-        head.innerHTML = `<span class="catalog-group-line">${GROUP_LINE[product.category]}</span><h3>${GROUP_LABELS[product.group]}</h3><span class="catalog-group-count">${count} ${count === 1 ? 'producto' : 'productos'}</span>`;
+        head.id = `grupo-${id}`;
+        head.innerHTML = `<span class="catalog-group-line">${GROUP_LINE[first.category]}</span><h3>${GROUP_LABELS[id]}</h3><span class="catalog-group-count">${items.length} ${items.length === 1 ? 'producto' : 'productos'}</span>`;
         fragment.appendChild(head);
-      }
-      const card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'product-card';
-      card.dataset.product = product.id;
-      card.setAttribute('aria-label', `Ver detalles de ${product.title}`);
-      const visual = product.photo ? { src: assetUrl(product.photo), alt: `Fotografía de ${escapeHtml(product.title)}`, cls: ' has-photo' } : { src: assetUrl(product.image), alt: `Ilustración de ${escapeHtml(product.title)}`, cls: '' };
-      card.innerHTML = `<span class="product-image${visual.cls}"><span class="product-category">${CATEGORY_SHORT[product.category]}</span><img src="${visual.src}" alt="${visual.alt}" loading="lazy" width="440" height="330"></span><span class="product-body"><span class="product-title">${escapeHtml(product.title)}</span><span class="product-summary">${escapeHtml(product.summary)}</span><span class="product-bottom"><span>Consultar producto</span><span class="product-arrow">${icon('up-right')}</span></span></span>`;
-      card.addEventListener('click', () => openProduct(product));
-      fragment.appendChild(card);
-    });
+        const open = !!term || state.openGroups.has(id);
+        const list = open ? items : items.slice(0, PER_GROUP);
+        list.forEach((p) => fragment.appendChild(productCard(p)));
+        visible += list.length;
+        if (!term && items.length > PER_GROUP) {
+          const more = document.createElement('button');
+          more.type = 'button';
+          more.className = 'catalog-more';
+          more.setAttribute('aria-expanded', String(open));
+          more.innerHTML = open
+            ? `Ver menos de ${GROUP_LABELS[id].toLowerCase()} ${icon('chevron')}`
+            : `Ver los ${items.length} de ${GROUP_LABELS[id].toLowerCase()} ${icon('down')}`;
+          more.addEventListener('click', () => {
+            if (open) state.openGroups.delete(id); else state.openGroups.add(id);
+            renderProducts();
+            if (open) document.getElementById(`grupo-${id}`)?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+          });
+          fragment.appendChild(more);
+        }
+      });
+    }
     grid.replaceChildren(fragment);
-    $('#empty-state').hidden = shown.length !== 0;
-    $('#catalog-count').textContent = term || state.category !== 'all'
+    $('#empty-state').hidden = filtered.length !== 0;
+    $('#catalog-count').textContent = term
       ? `${filtered.length} ${filtered.length === 1 ? 'producto encontrado' : 'productos encontrados'}`
-      : `${shown.length} de ${PRODUCTS.length} productos · Venta por consulta`;
+      : showAll
+        ? `${filtered.length} productos · Venta por consulta`
+        : `${visible} de ${PRODUCTS.length} productos · Venta por consulta`;
     const catalogButton = $('#show-catalog');
     catalogButton.hidden = state.category !== 'all' || !!term;
     catalogButton.innerHTML = `${state.expanded ? 'Volver a los destacados' : 'Explorar todo el catálogo'} ${icon(state.expanded ? 'chevron' : 'arrow')}`;
@@ -147,6 +177,7 @@
   $$('.category-tab').forEach((button) => button.addEventListener('click', () => {
     state.category = button.dataset.category;
     state.expanded = false;
+    state.openGroups.clear();
     $$('.category-tab').forEach((tab) => {
       const active = tab === button;
       tab.classList.toggle('is-active', active);
