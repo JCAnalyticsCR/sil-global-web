@@ -92,7 +92,8 @@
     quoteForm.reset();
     $('#form-status').hidden = true;
     messageInput.setCustomValidity('');
-    $('#quote-interest').value = topic === 'internacional' ? 'Compras internacionales' : 'Productos de embalaje y empaque';
+    $('#quote-interest').value = topic === 'internacional' ? 'Compras internacionales' : topic === 'hoteleria' ? 'Soluciones para hotelería' : 'Productos de embalaje y empaque';
+    if (topic === 'hoteleria') messageInput.value = 'Me interesan las soluciones para hotelería.\nTipo de alojamiento y amenidades que necesito: ';
     if (product) messageInput.value = `Me gustaría consultar por ${product.title.toLowerCase()}.\nCantidad aproximada: `;
     if (topic === 'internacional') messageInput.value = 'Me gustaría consultar sobre una compra internacional.\nProducto o proyecto: ';
     openDialog(quoteDialog);
@@ -129,6 +130,24 @@
     if (!state.expanded) $('#productos').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   });
   $$('[data-quote]').forEach((button) => button.addEventListener('click', () => openQuote(button.dataset.quote)));
+  // Enlaces de servicio que abren el catálogo ya filtrado
+  $$('[data-catalog]').forEach((link) => link.addEventListener('click', () => {
+    const tab = $(`.category-tab[data-category="${link.dataset.catalog}"]`);
+    if (tab) tab.click();
+  }));
+  // Paneles de servicio: en táctil, un toque abre; el segundo sigue el enlace
+  const stage = $('.svc-stage');
+  if (stage) {
+    const open = (panel) => $$('.svc', stage).forEach((s) => s.classList.toggle('is-open', s === panel));
+    $$('.svc', stage).forEach((panel) => {
+      panel.addEventListener('focusin', () => open(panel));
+      panel.addEventListener('click', (event) => {
+        if (matchMedia('(hover: hover)').matches || panel.classList.contains('is-open')) return;
+        event.preventDefault(); open(panel);
+      });
+    });
+    stage.addEventListener('focusout', (event) => { if (!stage.contains(event.relatedTarget)) open(null); });
+  }
   $('#quote-this-product').addEventListener('click', () => {
     const product = state.selectedProduct;
     productDialog.close();

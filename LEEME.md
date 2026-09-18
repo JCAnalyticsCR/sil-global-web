@@ -12,7 +12,7 @@ El diseño se puede recorrer sin conexión. Abrir WhatsApp o Facebook requiere c
 
 - Portada en el azul del logo con acentos dorados, globo ilustrativo, conexiones animadas y un movimiento sutil con el puntero. Las animaciones se desactivan cuando el sistema solicita movimiento reducido.
 - Navegación por secciones y menú móvil.
-- Sección «Servicios» con categorías (hoy: Embalaje; el resto se agrega cuando el cliente las defina) y, dentro de Embalaje, el catálogo de 13 entradas: 7 de bolsas, 2 de cintas y 4 de embalaje industrial. La primera vista muestra cuatro destacados.
+- Sección «Nuestros productos y servicios»: cuatro paneles fotográficos que se abren al pasar el cursor o tocar (embalaje y paletizado, bolsas plásticas y empaque, hotelería, productos internacionales) y debajo el catálogo de 13 entradas: 7 de bolsas, 2 de cintas y 4 de embalaje industrial. La primera vista muestra cuatro destacados.
 - Filtros por categoría, buscador que admite búsquedas sin tildes, vista de detalles y selección de un producto para consultar.
 - Secciones de acompañamiento comercial, bróker de compras internacionales, presentación («Nosotros», banda oscura con las dos líneas de negocio como tarjetas que enlazan a su sección) y contacto.
 - Formulario que prepara un mensaje y abre WhatsApp. **No envía mensajes automáticamente, no guarda datos y no utiliza un servidor de formularios.** La persona revisa y envía el mensaje en WhatsApp.

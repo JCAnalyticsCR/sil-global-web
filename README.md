@@ -9,7 +9,7 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 ## Qué se puede probar
 
 - Portada en el azul del logo con acentos dorados, globo ilustrativo con conexiones animadas y movimiento sutil con el puntero (se desactiva si el sistema pide movimiento reducido).
-- Sección «Servicios» por categorías (hoy: Embalaje) con catálogo de 13 productos: 7 de bolsas, 2 de cintas y 4 de embalaje industrial.
+- Sección de servicios con cuatro paneles fotográficos expandibles y catálogo de 13 productos: 7 de bolsas, 2 de cintas y 4 de embalaje industrial.
 - Filtros por categoría, buscador que tolera búsquedas sin tildes y ficha de detalle por producto.
 - Secciones de acompañamiento comercial, bróker de compras internacionales, presentación («Nosotros», banda oscura con las dos líneas de negocio como tarjetas que enlazan a su sección) y contacto.
 - Formulario que **prepara** un mensaje y abre WhatsApp: no envía nada solo, no guarda datos y no usa servidor de formularios. La persona revisa y envía desde WhatsApp.
