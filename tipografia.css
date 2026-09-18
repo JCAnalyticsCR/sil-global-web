@@ -160,3 +160,16 @@ h3{font-size:24px}
   .contact-card strong{font-size:14.5px}
   .product-title{font-size:15px}
 }
+
+/* ---------- Títulos de sección: Bricolage Grotesque + acento con subrayado dorado ---------- */
+:root{--font-titles:'Bricolage Grotesque','Sora',Arial,sans-serif}
+h2,h3,.svc-spine span,.about-statement{font-family:var(--font-titles);font-optical-sizing:auto}
+h2{font-weight:800;letter-spacing:-2px;line-height:1.02}
+h3{font-weight:700;letter-spacing:-.6px}
+.hero h1{font-family:var(--font-display)}
+/* el acento deja de ser serif itálica: mismo peso, color de marca y trazo dorado debajo */
+h2 .serif-accent,h3 .serif-accent,.about-statement .serif-accent{font-family:var(--font-titles);font-style:normal;font-weight:800;letter-spacing:-2px;
+  color:#1670c2;background:linear-gradient(90deg,var(--gold),var(--gold-light)) no-repeat 0 92%/100% .14em;padding-bottom:.04em}
+.process-section h2 .text-gold,.contact-copy h2 .text-gold{background:linear-gradient(90deg,#ffffff55,#ffffff22) no-repeat 0 92%/100% .12em}
+.about-statement .serif-accent,.contact-copy h2 .serif-accent{color:var(--gold-light)}
+.eyebrow{font-family:var(--font-titles);font-weight:700;letter-spacing:3px}
