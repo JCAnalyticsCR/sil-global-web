@@ -397,3 +397,15 @@ html{scroll-padding-top:112px}
 .svc-body::before{inset:30% 0 0}
 .svc-icon{position:absolute;top:24px;left:24px;margin:0;background:#0b4a8acc;box-shadow:0 4px 14px #0006}
 @media(max-width:900px){.svc-icon{top:18px;left:18px;width:46px;height:46px}.svc-icon .icon{width:23px;height:23px}}
+
+/* ---------- 25. Globo: rutas desde varios orígenes hacia Costa Rica ----------
+   Cada destello recorre su arco del origen al destino (pathLength=1000). */
+.route-dash{fill:none;stroke:#8ff7f8;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:70 1400;stroke-dashoffset:70;
+  filter:drop-shadow(0 0 4px #65eaed);animation:route-travel var(--t,6s) cubic-bezier(.45,0,.25,1) var(--d,0s) infinite}
+@keyframes route-travel{0%{stroke-dashoffset:70;opacity:0}8%{opacity:1}85%{opacity:1}100%{stroke-dashoffset:-1000;opacity:0}}
+.route-origin{transform-box:fill-box;transform-origin:center;animation:route-blink 3.2s ease-in-out var(--d,0s) infinite}
+@keyframes route-blink{0%,100%{opacity:.55;scale:1}50%{opacity:1;scale:1.6}}
+.connection.faint{opacity:.42}
+.globe-connections .connection{stroke-width:1.9;opacity:.85}
+.globe-connections .connection.faint{stroke-width:1.5;opacity:.6}
+.route-origin{filter:drop-shadow(0 0 5px #65eaed)}
