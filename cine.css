@@ -458,3 +458,7 @@ html{scroll-padding-top:112px}
 /* Línea superior del hero: en celular se parte en dos renglones limpios, sin "·" colgando */
 .eyebrow-lines>span{white-space:nowrap}
 @media(max-width:700px){.eyebrow-lines{display:flex;flex-direction:column;gap:4px}.eyebrow-sep{display:none}}
+/* Franja de productos: texto blanco nítido (antes turquesa apagado) */
+.marquee{color:#fff}
+.marquee-track>span{text-shadow:0 1px 8px #0006}
+.marquee-track i{opacity:.85}
