@@ -18,13 +18,18 @@
   const header = $('.site-header');
   let scrollPendiente = false;
   let ultimoProgreso = -1;
+  let compacto = false;
   function onScrollFrame() {
     scrollPendiente = false;
     const max = root.scrollHeight - innerHeight;
     const p = max > 0 ? Math.min(1, scrollY / max) : 0;
     // Umbral: no escribir estilo para cambios que nadie ve (regla del 1%)
     if (progreso && Math.abs(p - ultimoProgreso) > 0.004) { progreso.style.transform = `scaleX(${p.toFixed(3)})`; ultimoProgreso = p; }
-    header.classList.toggle('is-scrolled', scrollY > 40);
+    // Histéresis: el header compacto mide ~20 px menos y, al ser sticky, la página
+    // se corre ese tanto. Con un solo umbral (40) el scroll cruzaba de ida y vuelta
+    // y el logo palpitaba. Compacta pasando 80 px y solo vuelve bajo 10 px.
+    if (!compacto && scrollY > 80) { compacto = true; header.classList.add('is-scrolled'); }
+    else if (compacto && scrollY < 10) { compacto = false; header.classList.remove('is-scrolled'); }
   }
   addEventListener('scroll', () => { if (!scrollPendiente) { scrollPendiente = true; requestAnimationFrame(onScrollFrame); } }, { passive: true });
   onScrollFrame();
