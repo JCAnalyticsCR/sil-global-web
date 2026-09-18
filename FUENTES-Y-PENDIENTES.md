@@ -39,3 +39,9 @@ El globo se generó con geometría cartográfica de Natural Earth de baja resolu
 ## Pendiente de aprobación
 
 Validar la fidelidad del logo recreado frente al original, la paleta, los textos comerciales, vigencia de servicios, canales de atención y datos de catálogo; obtener fotografías autorizadas y las condiciones comerciales que deban comunicarse al público. Decidir dominio y publicación por separado.
+
+## Revisión de textos — 17 de septiembre de 2026
+
+A pedido de la responsable del proyecto, la página deja de presentar a SIL Global como empresa de logística o bróker de importación y exportación. El eje pasa a ser el punto 4 de «Nuestros productos y servicios.docx»: *identificamos, conseguimos y gestionamos los productos que su negocio requiere, desde cualquier origen hasta su entrega*. La dirección del mensaje también se invirtió: del mundo hacia el negocio del cliente en Costa Rica, no de Costa Rica hacia el mundo.
+
+Se retiraron: «bróker», «importación y exportación», «logística», «negociación de precios y términos», «búsqueda de proveedores», «consolidación de carga» y la opción «Asesoría comercial» del formulario.

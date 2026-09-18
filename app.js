@@ -92,10 +92,10 @@
     quoteForm.reset();
     $('#form-status').hidden = true;
     messageInput.setCustomValidity('');
-    $('#quote-interest').value = topic === 'internacional' ? 'Compras internacionales' : topic === 'hoteleria' ? 'Soluciones para hotelería' : 'Productos de embalaje y empaque';
+    $('#quote-interest').value = topic === 'internacional' ? 'Conseguir un producto de otro origen' : topic === 'hoteleria' ? 'Soluciones para hotelería' : 'Productos de embalaje y empaque';
     if (topic === 'hoteleria') messageInput.value = 'Me interesan las soluciones para hotelería.\nTipo de alojamiento y amenidades que necesito: ';
     if (product) messageInput.value = `Me gustaría consultar por ${product.title.toLowerCase()}.\nCantidad aproximada: `;
-    if (topic === 'internacional') messageInput.value = 'Me gustaría consultar sobre una compra internacional.\nProducto o proyecto: ';
+    if (topic === 'internacional') messageInput.value = 'Necesito conseguir un producto.\nProducto y cantidad aproximada: ';
     openDialog(quoteDialog);
   }
 
