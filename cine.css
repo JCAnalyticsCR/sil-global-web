@@ -471,3 +471,21 @@ html{scroll-padding-top:112px}
 .international-image figcaption,.international-image .hud,.international-image .image-corner{z-index:2}
 .international-image figcaption strong{text-shadow:0 2px 16px #000a}
 @media(max-width:900px){.international-image>.intl-photo{object-position:52% center}}
+/* La foto es 16:9: el marco toma esa proporción para mostrarla completa, sin recortar los lados */
+.international-grid{grid-template-columns:1.45fr 1fr;gap:60px}
+.international-image{aspect-ratio:16/9;max-height:none}
+.international-image>.intl-photo{object-position:center}
+.international-image figcaption{inset:auto 26px 22px}
+.international-image figcaption strong{font-size:clamp(22px,2vw,28px);margin-top:8px}
+@media(max-width:900px){
+  .international-grid{grid-template-columns:1fr;gap:34px}
+  .international-image{aspect-ratio:16/9}
+  .international-image>.intl-photo{object-position:center}
+}
+@media(max-width:700px){
+  .international-image figcaption{inset:auto 16px 13px}
+  .international-image figcaption .eyebrow{font-size:7.5px}
+  .international-image figcaption strong{font-size:18px;margin-top:4px;max-width:none}
+  .international-image figcaption strong br{display:none}
+  .international-image .hud{display:none}
+}
