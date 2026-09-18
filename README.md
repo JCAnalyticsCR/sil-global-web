@@ -33,7 +33,8 @@ GitHub Pages desde la rama `main` (raíz), con dominio `silglobalcr.com` y HTTPS
 ## Agregar un producto
 
 1. Foto recortada al producto, 1200×1000, en `assets/fotos/<id>.webp`.
-2. Una entrada en `PRODUCTS` dentro de `app.js` con `id`, `photo`, `title`, `category` (`bolsas`, `cintas` o `embalaje`), `summary`, `description` y `spec`.
+2. Una entrada en `PRODUCTS` dentro de `app.js` con `id`, `photo`, `title`, `category` (`bolsas`, `desechables`, `embalaje` o `cintas`), `group` (sección: `bolsas`, `envases`, `vasos`, `mesa`, `papeles`, `paletizado`, `proteccion` o `cintas`), `summary`, `description` y `spec`. Opcional: `table` con `head` y `rows` para una tabla de especificaciones.
+3. Ubicarla junto a los productos de su sección: el orden de `PRODUCTS` es el orden de la vitrina.
 
 ## Versionado de CSS y JS
 
