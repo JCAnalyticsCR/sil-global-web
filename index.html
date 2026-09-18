@@ -89,13 +89,15 @@
   ]
 }
   </script>
+  <script>/* Al recargar, la página abre siempre en la portada (sin restaurar la posición ni el #ancla) */
+  (function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';var n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(!n||n.type!=='reload')return;if(location.hash)history.replaceState(null,'',location.pathname+location.search);var top=function(){window.scrollTo({top:0,left:0,behavior:'instant'})};addEventListener('DOMContentLoaded',top);addEventListener('load',function(){top();setTimeout(top,80)});}catch(e){}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400&display=swap">
   <link rel="stylesheet" href="styles.css?v=e08a3091">
-  <link rel="stylesheet" href="cine.css?v=4e92bcc7">
+  <link rel="stylesheet" href="cine.css?v=6fd8dc38">
   <link rel="stylesheet" href="tipografia.css?v=786fb2ce">
-  <script src="app.js?v=c5bc54c2" defer></script>
+  <script src="app.js?v=38b99ef4" defer></script>
   <script src="cine.js?v=85596d5e" defer></script>
 </head>
 <body>

@@ -631,14 +631,17 @@ html{scroll-padding-top:112px}
   50%{transform:rotateY(6deg) translateX(5px)}
 }
 
-/* ---------- 34. Globo que se arrastra con el dedo ---------- */
-.hero-visual{touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
-.hero-visual:active{cursor:grabbing}
-.globe-stage.is-dragging .globe-image,.globe-stage.is-dragging .globe-connections{
-  animation:none!important;transform:rotateY(var(--ry,0deg)) translateX(var(--tx,0px));transition:transform .08s linear}
-.globe-stage.is-dragging.is-returning .globe-image,.globe-stage.is-dragging.is-returning .globe-connections{transition:transform .65s cubic-bezier(.22,1.2,.36,1)}
+/* (34: arrastre del globo retirado a pedido del cliente) */
 .globe-image{-webkit-user-drag:none;pointer-events:none}
-/* Balanceo automático más visible en celular */
-@media(max-width:700px) and (prefers-reduced-motion:no-preference){
-  .globe-image,.globe-connections{animation:globe-sway 12s ease-in-out infinite}
+
+/* ---------- 35. Globo sin balanceo automático: en PC sigue al cursor, en celular se arrastra ---------- */
+.globe-image,.globe-connections{animation:none!important}
+/* Planeta «vivo»: balanceo mínimo y lento en celular y PC. Usa las propiedades
+   individuales rotate/translate, que se suman al transform del seguimiento del cursor. */
+@media(prefers-reduced-motion:no-preference){
+  .globe-image,.globe-connections{animation:globe-live 18s ease-in-out infinite!important}
 }
+@keyframes globe-live{0%,100%{rotate:y -3.5deg;translate:-4px 0}50%{rotate:y 3.5deg;translate:4px 0}}
+.globe-stage.is-following .globe-image,.globe-stage.is-following .globe-connections{
+  transform:rotateY(var(--fy,0deg)) rotateX(var(--fx,0deg));transition:transform .6s cubic-bezier(.22,.8,.36,1)}
+@media(hover:hover) and (pointer:fine){.hero-visual{cursor:default}.hero-visual:active{cursor:default}}
