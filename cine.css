@@ -131,7 +131,7 @@ html.js-reveal .process-rail.is-in::after{transition:transform var(--dur-scene) 
 .about-place::before{content:none}
 .about-place .icon{width:18px;height:18px;color:var(--gold);flex-shrink:0}
 .about-lines{display:flex;flex-direction:column;gap:16px;border:0;margin:0}
-.about-line{position:relative;display:grid;grid-template-columns:58px 1fr auto;gap:0 22px;align-items:center;padding:30px 30px 30px 26px;
+.about-line{position:relative;display:grid;grid-template-columns:1fr auto;gap:0 22px;align-items:center;padding:30px 30px 30px 26px;
   border:1px solid #8fc9f54a;border-radius:14px;background:linear-gradient(120deg,#0e5399,#0b4787 70%);color:#fff;overflow:hidden;
   transition:border-color var(--dur-drawer),background var(--dur-drawer),translate var(--dur-drawer) var(--ease-enter)}
 .about-line:hover,.about-line:focus-visible{border-color:#e1b66b8c;translate:6px 0;background:linear-gradient(120deg,#1a73c6,#0f57a0 70%)}
@@ -144,10 +144,10 @@ html.js-reveal .process-rail.is-in::after{transition:transform var(--dur-scene) 
 .about-line:hover .about-line-arrow,.about-line:focus-visible .about-line-arrow{background:var(--gold);color:var(--navy);border-color:var(--gold);rotate:45deg}
 .about-line-icon{position:absolute;right:78px;bottom:-26px;width:120px;height:120px;stroke-width:.6;color:#9fd4ff;opacity:.14;pointer-events:none;transition:opacity var(--dur-drawer),translate var(--dur-drawer) var(--ease-enter)}
 .about-line:hover .about-line-icon{opacity:.28;translate:-6px -6px}
-@media(max-width:1150px){.about-inner{gap:50px}.about-line{padding:24px 22px 24px 20px;grid-template-columns:48px 1fr auto}.about-line strong{font-size:20px}}
+@media(max-width:1150px){.about-inner{gap:50px}.about-line{padding:24px 22px 24px 20px;grid-template-columns:1fr auto}.about-line strong{font-size:20px}}
 @media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:44px}.about-section{padding:84px 0 90px}.about-statement{font-size:clamp(44px,8vw,64px)}}
 @media(max-width:700px){.about-section{padding:62px 0 70px}.about-statement{font-size:clamp(40px,11vw,50px);letter-spacing:-2px}.about-place{font-size:14px;margin-top:24px}
-  .about-line{padding:20px 18px;grid-template-columns:38px 1fr auto;gap:0 14px}.about-line-number{font-size:30px}.about-line strong{font-size:18px}.about-line p{font-size:14px}
+  .about-line{padding:20px 18px;grid-template-columns:1fr auto;gap:0 14px}.about-line-number{font-size:30px}.about-line strong{font-size:18px}.about-line p{font-size:14px}
   .about-line-arrow{width:38px;height:38px}.about-line-icon{width:90px;height:90px;right:60px}.about-section .ghost{font-size:64vw}}
 
 /* ---------- 11. Contacto y ficha de producto: micro-vida al tocar ---------- */
@@ -197,7 +197,7 @@ html.js-reveal .process-rail.is-in::after{transition:transform var(--dur-scene) 
 .service-cat.is-active{border-color:#e1b66b8c;box-shadow:0 24px 60px #03203f33}
 a.service-cat:hover,a.service-cat:focus-visible{translate:0 -4px;border-color:var(--gold)}
 .service-cat-next{background:linear-gradient(135deg,#f5f9fd,#e6f1fb);color:var(--ink);border:1px dashed #8fc9f5;border-width:1.5px}
-.service-cat-top{display:flex;align-items:center;justify-content:space-between}
+.service-cat-top{display:flex;align-items:center;justify-content:flex-end}
 .service-cat-number{font-family:var(--font-display);font-size:13px;letter-spacing:2px;color:var(--gold)}
 .service-cat-next .service-cat-number{color:#1670c2}
 .service-cat-top .icon{width:34px;height:34px;stroke-width:1.2;color:var(--gold)}
