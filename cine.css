@@ -444,3 +444,5 @@ html{scroll-padding-top:112px}
   .site-footer .ft-brand .brand-logo{height:56px}
   .ft-bottom .back-to-top{display:grid;flex:none;margin-left:auto}
 }
+/* Sin la nota de ilustraciones, un espaciador mantiene centrado "Explorar todo el catálogo" */
+@media(min-width:901px){.catalog-bottom::after{content:"";min-width:160px}}

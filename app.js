@@ -1,25 +1,24 @@
 'use strict';
 /* SIL Global · Frontend estático. No envía formularios ni almacena datos.
- * El catálogo se basa en SIL-Global-datos-facebook (1).md.
- * Precios, stock, especificaciones no publicadas y correo en disputa se omiten.
+ * Catálogo de productos de SIL Global; precios y existencias se consultan por WhatsApp.
  */
 (() => {
   const CONTACT = Object.freeze({ whatsapp: '50671168899' });
   const PRODUCTS = Object.freeze([
     { id: 'film', title: 'Plástico de paletizar', category: 'embalaje', image: 'film.svg', summary: 'Stretch film · Protección de carga', description: 'Plástico de paletizar (stretch film) para asegurar y estabilizar la carga durante el transporte.', spec: 'Consultá las medidas, el calibre y las presentaciones disponibles.' },
-    { id: 'cinta-transparente', photo: 'fotos/cinta-transparente.webp', title: 'Cinta adhesiva transparente', category: 'cintas', image: 'tape.svg', summary: 'Presentaciones de 100 y 200 yardas', description: 'Cinta adhesiva transparente para empaque, en líneas comercial e industrial.', spec: 'Presentaciones publicadas: 100 y 200 yardas. Consultá la opción que necesitás.' },
+    { id: 'cinta-transparente', photo: 'fotos/cinta-transparente.webp', title: 'Cinta adhesiva transparente', category: 'cintas', image: 'tape.svg', summary: 'Presentaciones de 100 y 200 yardas', description: 'Cinta adhesiva transparente para empaque, en líneas comercial e industrial.', spec: 'Presentaciones: 100 y 200 yardas. Consultá la opción que necesitás.' },
     { id: 'cinta-color', photo: 'fotos/cinta-color.webp', title: 'Cinta adhesiva de color', category: 'cintas', image: 'tape.svg', summary: 'Presentaciones de 100 y 200 yardas', description: 'Cinta adhesiva de color para empacar, sellar e identificar tus envíos.', spec: 'Presentaciones: 100 y 200 yardas. Consultá los colores disponibles.' },
-    { id: 'bolsa-papel', photo: 'fotos/bolsa-papel.webp', title: 'Bolsas de papel', category: 'bolsas', image: 'paper.svg', summary: 'De ½ a 12 libras · Paquetes de 500+', description: 'Bolsas de papel para las necesidades de empaque de tu negocio.', spec: 'Tamaños publicados: de ½ libra a 12 libras. Paquetes de 500 unidades en adelante.' },
+    { id: 'bolsa-papel', photo: 'fotos/bolsa-papel.webp', title: 'Bolsas de papel', category: 'bolsas', image: 'paper.svg', summary: 'De ½ a 12 libras · Paquetes de 500+', description: 'Bolsas de papel para las necesidades de empaque de tu negocio.', spec: 'Tamaños: de ½ libra a 12 libras. Paquetes de 500 unidades en adelante.' },
     { id: 'burbuja', title: 'Burbuja de protección', category: 'embalaje', image: 'bubble.svg', summary: 'Protección y amortiguación de impactos', description: 'Material de burbuja para amortiguar impactos y proteger tus productos.', spec: 'Consultá las medidas y las presentaciones para tu empaque.' },
     { id: 'polipropileno', photo: 'fotos/polipropileno.webp', title: 'Bolsas de polipropileno', category: 'bolsas', image: 'clear-bag.svg', summary: 'Transparentes · Empaque y presentación', description: 'Bolsas de polipropileno transparentes para visualizar el contenido, empacar y almacenar productos.', spec: 'Indicá el tamaño y la cantidad que necesitás para consultar disponibilidad.' },
     { id: 'bolsa-negra', photo: 'fotos/bolsa-negra.webp', title: 'Bolsas negras', category: 'bolsas', image: 'black-bag.svg', summary: 'Uso doméstico, comercial e industrial', description: 'Bolsas negras para necesidades de uso doméstico, comercial e industrial.', spec: 'Consultá tamaño, presentación y cantidad según el uso que les darás.' },
-    { id: 'manigueta', photo: 'fotos/manigueta.webp', title: 'Bolsas con manigueta', category: 'bolsas', image: 'handle-bag.svg', summary: 'Con asa · Variantes rayas y color', description: 'Bolsas con asa para llevar y empacar productos de tu negocio.', spec: 'Variantes publicadas: Manigueta Rayas y Manigueta Color. Consultá colores y medidas.' },
-    { id: 'lamina', photo: 'fotos/lamina.webp', title: 'Bolsas en lámina', category: 'bolsas', image: 'clear-bag.svg', summary: 'Una opción para el empaque de tu negocio', description: 'Bolsas en lámina incluidas en el catálogo publicado de SIL Global.', spec: 'Consultá las medidas, las presentaciones y la cantidad que necesitás.' },
+    { id: 'manigueta', photo: 'fotos/manigueta.webp', title: 'Bolsas con manigueta', category: 'bolsas', image: 'handle-bag.svg', summary: 'Con asa · Rayas y color', description: 'Bolsas con asa para llevar y empacar productos de tu negocio.', spec: 'Variantes: rayas y color. Consultá colores y medidas.' },
+    { id: 'lamina', photo: 'fotos/lamina.webp', title: 'Bolsas en lámina', category: 'bolsas', image: 'clear-bag.svg', summary: 'Una opción para el empaque de tu negocio', description: 'Bolsas en lámina para empacar y proteger los productos de tu negocio.', spec: 'Consultá las medidas, las presentaciones y la cantidad que necesitás.' },
     { id: 'rollo', photo: 'fotos/rollo.webp', title: 'Bolsas en rollo', category: 'bolsas', image: 'roll-bag.svg', summary: 'Presentación en rollo para empaque', description: 'Bolsas en rollo para las necesidades de empaque diario de tu negocio.', spec: 'Consultá el tamaño y la presentación adecuados para tu uso.' },
-    { id: 'biodegradable', photo: 'fotos/biodegradable.webp', title: 'Bolsas biodegradables', category: 'bolsas', image: 'clear-bag.svg', summary: 'De ½ a 12 libras · Consultá características', description: 'Producto publicado bajo la denominación «bolsa biodegradable». Las propiedades y la certificación del material deben confirmarse antes de la compra.', spec: 'Tamaños publicados: de ½ a 12 libras. Consultá características y certificación.' },
+    { id: 'biodegradable', photo: 'fotos/biodegradable.webp', title: 'Bolsas biodegradables', category: 'bolsas', image: 'clear-bag.svg', summary: 'De ½ a 12 libras', description: 'Bolsas biodegradables para empacar los productos de tu negocio.', spec: 'Tamaños: de ½ a 12 libras. Consultá las características y la certificación del material.' },
     { id: 'zunchos', title: 'Zunchos y flejes plásticos', category: 'embalaje', image: 'strapping.svg', summary: 'Sujeción para tus cargas', description: 'Zunchos y flejes plásticos para la sujeción de cargas.', spec: 'Consultá medidas, presentaciones y condiciones de uso para tu carga.' },
     { id: 'esquineros', title: 'Esquineros de cartón', category: 'embalaje', image: 'corners.svg', summary: 'Refuerzo y protección de bordes', description: 'Esquineros de cartón para reforzar y proteger los bordes de tus cargas.', spec: 'Indicá las medidas y la cantidad que necesitás para tu empaque.' },
-    { id: 'cinta-pulgada', photo: 'fotos/cinta-pulgada.webp', title: 'Cinta de empaque de 1 pulgada', category: 'cintas', image: 'tape.svg', summary: 'Uso industrial y comercial', description: 'Cinta de empaque de una pulgada para uso industrial y comercial.', spec: 'Medida publicada: 1 pulgada. Consultá presentación y cantidad.' }
+    { id: 'cinta-pulgada', photo: 'fotos/cinta-pulgada.webp', title: 'Cinta de empaque de 1 pulgada', category: 'cintas', image: 'tape.svg', summary: 'Uso industrial y comercial', description: 'Cinta de empaque de una pulgada para uso industrial y comercial.', spec: 'Medida: 1 pulgada. Consultá presentación y cantidad.' }
   ]);
   const CATEGORY_LABELS = Object.freeze({ bolsas: 'Bolsas', cintas: 'Cintas', embalaje: 'Embalaje industrial' });
   const CATEGORY_SHORT = Object.freeze({ bolsas: 'BOLSAS', cintas: 'CINTAS', embalaje: 'EMBALAJE' });
@@ -85,7 +84,7 @@
     $('#product-dialog-description').textContent = product.description;
     $('#product-dialog-spec').textContent = product.spec;
     $('#product-dialog-image').src = assetUrl(product.photo || product.image);
-    $('#product-dialog-image').alt = product.photo ? `Fotografía de ${product.title}` : `Ilustración de ${product.title}; no es una fotografía del producto real.`;
+    $('#product-dialog-image').alt = product.photo ? `Fotografía de ${product.title}` : `Ilustración de ${product.title}`;
     $('#product-dialog-image').parentElement.classList.toggle('has-photo', !!product.photo);
     openDialog(productDialog);
   }
