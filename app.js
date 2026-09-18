@@ -227,8 +227,8 @@
 
   // Navigation highlights track visible sections without modifying the URL.
   const sectionNav = [
-    ['inicio', 'inicio'], ['soluciones', 'servicios'], ['servicios', 'servicios'], ['productos', 'productos'],
-    ['acompanamiento', 'servicios'], ['internacional', 'servicios'], ['nosotros', 'nosotros'], ['contacto', null]
+    ['inicio', 'inicio'], ['servicios', 'servicios'], ['acompanamiento', 'servicios'], ['productos', 'productos'],
+    ['internacional', 'servicios'], ['nosotros', 'nosotros'], ['contacto', null]
   ];
   let scrollScheduled = false;
   function updateNavigation() {

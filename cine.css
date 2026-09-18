@@ -197,7 +197,7 @@ html.js-reveal .process-rail.is-in::after{transition:transform var(--dur-scene) 
   radial-gradient(900px 600px at 6% 92%,#1f9de8 0%,#146fc0 30%,transparent 65%),
   radial-gradient(700px 500px at 45% -10%,#1b6dbf 0%,transparent 60%),
   linear-gradient(180deg,#0a4585 0%,#0b4a8a 55%,#0c4c8e 100%)}
-.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:140px;pointer-events:none;background:linear-gradient(180deg,transparent,#0b4787)}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:140px;pointer-events:none;background:linear-gradient(180deg,transparent,#0a4079)}
 .hero-grid{opacity:.7}
 .solution-strip{border-top:0;background:
   radial-gradient(900px 260px at 50% -40%,#1f7fd4 0%,transparent 70%),
@@ -297,3 +297,23 @@ html.js-reveal .process-rail.is-in::after{transition:transform var(--dur-scene) 
 }
 @media(max-width:700px){.svc-body h3{font-size:24px}.svc-tag{font-size:17px}.svc-desc{font-size:14.5px}.svc.is-open,.svc:hover,.svc-stage:not(:has(.is-open)) .svc:first-child{min-height:380px}}
 @media(prefers-reduced-motion:reduce){.svc,.svc-photo,.svc-body,.svc-veil,.svc-spine{transition:none}}
+
+/* ---------- 18. Orden: servicios de primero, catálogo más abajo ---------- */
+#servicios{padding-top:84px}
+#servicios .svc-hint{margin-bottom:0}
+.catalog-section .ghost{-webkit-text-stroke-color:#e1b66b30}
+.catalog-section .catalog-head{margin-bottom:34px}
+.catalog-section .catalog-head h2{margin-top:12px}
+.catalog-section .catalog-head .heading-description{margin-top:14px;max-width:560px}
+@media(max-width:700px){#servicios{padding-top:56px}}
+
+/* ---------- 19. Logo oficial (raster del cliente) sobre placa blanca ---------- */
+.brand-plate{display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:7px 14px;box-shadow:0 6px 22px #03203f33;transition:box-shadow var(--dur-drawer)}
+.brand:hover .brand-plate{box-shadow:0 8px 28px #03203f4d}
+.brand-logo{display:block;height:52px;width:auto;aspect-ratio:363/185;image-rendering:auto}
+.site-footer .brand-logo{height:48px}
+.site-header.is-scrolled .brand-logo{height:44px}
+@media(max-width:1150px){.brand-logo{height:48px}}
+@media(max-width:900px){.brand-logo{height:44px}.brand-plate{padding:6px 11px;border-radius:10px}}
+@media(max-width:700px){.brand-logo{height:40px}.site-footer .brand-logo{height:42px}}
+@media(max-width:380px){.brand-logo{height:34px}.brand-plate{padding:5px 9px}}

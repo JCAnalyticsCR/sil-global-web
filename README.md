@@ -4,7 +4,7 @@ Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista d
 
 **Ver la propuesta en vivo → https://jcanalyticscr.github.io/sil-global-web/**
 
-> Esto es un **prototipo de diseño**, no un sitio en producción. No hay dominio, hospedaje definitivo, analítica, carrito, pagos ni base de datos. Los textos y las ilustraciones de producto están pendientes de aprobación del cliente. El logo es una recreación vectorial del logo oficial de SIL Global, adaptado al fondo oscuro del sitio.
+> Esto es un **prototipo de diseño**, no un sitio en producción. No hay dominio, hospedaje definitivo, analítica, carrito, pagos ni base de datos. Los textos y las ilustraciones de producto están pendientes de aprobación del cliente. El logo es el archivo oficial entregado por el cliente, mostrado sobre placa blanca.
 
 ## Qué se puede probar
 
