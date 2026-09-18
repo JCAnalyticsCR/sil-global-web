@@ -34,3 +34,7 @@ GitHub Pages desde la rama `main` (raíz), con dominio `silglobalcr.com` y HTTPS
 
 1. Foto recortada al producto, 1200×1000, en `assets/fotos/<id>.webp`.
 2. Una entrada en `PRODUCTS` dentro de `app.js` con `id`, `photo`, `title`, `category` (`bolsas`, `cintas` o `embalaje`), `summary`, `description` y `spec`.
+
+## Versionado de CSS y JS
+
+`index.html` carga los estilos y scripts con `?v=<hash>` (por ejemplo `app.js?v=28f53c0f`). Cada vez que cambie un `.css` o `.js`, actualizá ese código antes de publicar para que los navegadores, sobre todo Safari en iPhone, no mezclen la página nueva con archivos viejos guardados.

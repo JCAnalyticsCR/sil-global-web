@@ -288,14 +288,14 @@ html.js-reveal .process-rail.is-in::after{transition:transform var(--dur-scene) 
 @media(max-width:900px){
   .svc-stage{flex-direction:column;height:auto;gap:14px}
   .svc{flex:none;min-height:150px;transition:min-height var(--dur-section) var(--ease-enter)}
-  .svc.is-open,.svc:hover{min-height:400px}
+  .svc.is-open{min-height:400px}
   .svc-spine{flex-direction:row;justify-content:flex-start;padding:0 22px 22px;gap:14px}
   .svc-spine span{writing-mode:horizontal-tb;rotate:none;max-height:none;white-space:normal;font-size:18px}
   .svc-stage:not(:has(.is-open)) .svc:first-child{min-height:400px}
   .svc-body{padding:24px 22px 22px}
   .svc-hint{margin-bottom:44px}
 }
-@media(max-width:700px){.svc-body h3{font-size:24px}.svc-tag{font-size:17px}.svc-desc{font-size:14.5px}.svc.is-open,.svc:hover,.svc-stage:not(:has(.is-open)) .svc:first-child{min-height:380px}}
+@media(max-width:700px){.svc-body h3{font-size:24px}.svc-tag{font-size:17px}.svc-desc{font-size:14.5px}.svc.is-open,.svc-stage:not(:has(.is-open)) .svc:first-child{min-height:380px}}
 @media(prefers-reduced-motion:reduce){.svc,.svc-photo,.svc-body,.svc-veil,.svc-spine{transition:none}}
 
 /* ---------- 18. Orden: servicios de primero, catálogo más abajo ---------- */
@@ -585,3 +585,7 @@ html{scroll-padding-top:112px}
   .catalog-toolbar .catalog-search{width:100%}
   .product-grid.product-rail .product-image{aspect-ratio:1.25}
 }
+
+/* En pantallas táctiles el :hover «pegado» agrandaba la tarjeta sin mostrar el texto: solo aplica con puntero real */
+@media(hover:hover) and (max-width:900px){.svc:hover{min-height:400px}}
+@media(hover:hover) and (max-width:700px){.svc:hover{min-height:380px}}
