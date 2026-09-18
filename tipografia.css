@@ -15,7 +15,7 @@ h1,h2,h3,.eyebrow,.button,.nav-link,.category-tab,.text-link,.section-number,.st
 .serif-accent,.footer-bottom em,.about-line-number{font-family:var(--font-serif);font-optical-sizing:auto}
 .serif-accent{font-weight:400;letter-spacing:-.5px}
 h1,h2,h3{font-weight:600}
-.hero h1{font-weight:800}
+.hero .hero-title{font-weight:800}
 .ghost,.contact-watermark{font-family:var(--font-display);font-weight:800;font-style:normal}
 
 /* ---------- Escala general (fuera del hero) ---------- */
@@ -166,7 +166,7 @@ h3{font-size:24px}
 h2,h3,.svc-spine span,.about-statement{font-family:var(--font-titles);font-optical-sizing:auto}
 h2{font-weight:800;letter-spacing:-2px;line-height:1.02}
 h3{font-weight:700;letter-spacing:-.6px}
-.hero h1{font-family:var(--font-display)}
+.hero .hero-title{font-family:var(--font-display)}
 /* el acento deja de ser serif itálica: mismo peso, color de marca y trazo dorado debajo */
 h2 .serif-accent,h3 .serif-accent,.about-statement .serif-accent{font-family:var(--font-titles);font-style:normal;font-weight:800;letter-spacing:-2px;
   color:#1670c2;background:linear-gradient(90deg,var(--gold),var(--gold-light)) no-repeat 0 92%/100% .14em;padding-bottom:.04em}

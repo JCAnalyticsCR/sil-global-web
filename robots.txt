@@ -1,0 +1,5 @@
+# robots.txt · https://silglobalcr.com
+User-agent: *
+Allow: /
+
+Sitemap: https://silglobalcr.com/sitemap.xml
