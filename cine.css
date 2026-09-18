@@ -364,3 +364,10 @@ html{scroll-padding-top:112px}
 .globe-note strong br{display:none}
 @media(max-width:900px){.globe-note{bottom:-2px}.globe-note strong{font-size:14px!important}}
 @media(max-width:700px){.globe-note{bottom:6px}.globe-note::before{height:16px}.globe-note small{font-size:8.5px!important;letter-spacing:2.2px!important}.globe-note strong{font-size:13.5px!important}}
+/* ajuste: leyenda en una sola línea, dentro del hero */
+.globe-note{flex-direction:row!important;gap:14px!important;bottom:14px!important;align-items:center!important}
+.globe-note::before{width:34px;height:1px;margin:0;background:linear-gradient(90deg,transparent,var(--gold))}
+.globe-note::after{content:'';width:34px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.globe-note>span:last-child{display:flex;align-items:baseline;gap:12px}
+.globe-note strong{font-size:15px!important}
+@media(max-width:700px){.globe-note{bottom:4px!important;gap:8px!important}.globe-note::before,.globe-note::after{width:16px}.globe-note>span:last-child{flex-direction:column;align-items:center;gap:2px}}
