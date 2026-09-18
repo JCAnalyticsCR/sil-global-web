@@ -332,6 +332,39 @@
   });
   globeVisual.addEventListener('pointerleave', () => { globeStage.style.transform = ''; });
 
+  // Arrastrar el planeta con el dedo (o el mouse): se inclina siguiendo el gesto y vuelve al soltar.
+  // touch-action: pan-y deja el desplazamiento vertical de la página intacto.
+  let drag = null;
+  const MAX_TILT = 28;
+  const setTilt = (deg) => {
+    globeStage.style.setProperty('--ry', `${deg.toFixed(2)}deg`);
+    globeStage.style.setProperty('--tx', `${(deg * 0.9).toFixed(1)}px`);
+  };
+  globeVisual.addEventListener('pointerdown', (event) => {
+    if (motionQuery.matches || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    drag = { x: event.clientX, id: event.pointerId, width: globeVisual.getBoundingClientRect().width };
+    globeStage.classList.remove('is-returning');
+    globeStage.classList.add('is-dragging');
+    setTilt(0);
+  });
+  globeVisual.addEventListener('pointermove', (event) => {
+    if (!drag || event.pointerId !== drag.id) return;
+    const dx = event.clientX - drag.x;
+    // resistencia progresiva: cuanto más se arrastra, menos se inclina
+    const tilt = MAX_TILT * Math.tanh(dx / (drag.width * 0.45));
+    setTilt(tilt);
+  });
+  const endDrag = (event) => {
+    if (!drag || (event && event.pointerId !== drag.id)) return;
+    drag = null;
+    globeStage.classList.add('is-returning');
+    // volver justo al punto donde arranca el balanceo automático (sin salto)
+    globeStage.style.setProperty('--ry', '-9deg');
+    globeStage.style.setProperty('--tx', '-10px');
+    window.setTimeout(() => globeStage.classList.remove('is-dragging', 'is-returning'), 700);
+  };
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach((type) => globeVisual.addEventListener(type, endDrag));
+
   // Navigation highlights track visible sections without modifying the URL.
   const sectionNav = [
     ['inicio', 'inicio'], ['servicios', 'servicios'], ['acompanamiento', 'servicios'], ['productos', 'productos'],
