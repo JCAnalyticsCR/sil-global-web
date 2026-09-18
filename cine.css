@@ -264,3 +264,20 @@ a.service-cat:hover,a.service-cat:focus-visible{translate:0 -4px;border-color:va
 .globe-note{background:linear-gradient(110deg,#0b4685e8,#0f579fb8)}
 .step-icon{background:#ffffff08}
 @media(max-width:700px){.hero::after{height:90px}}
+
+/* ---------- 16. Fotografías de producto y fondo de la categoría Embalaje ---------- */
+.product-image.has-photo{background:#eef4fa}
+.product-image.has-photo img{object-fit:cover}
+.product-image.has-photo .product-category{color:#fff;background:#0b4a8acc;padding:5px 9px;border-radius:999px}
+.product-dialog-image.has-photo{background:#eef4fa}
+.product-dialog-image.has-photo img{object-fit:cover;max-height:none;height:100%}
+.service-cat-embalaje{isolation:isolate}
+.service-cat-embalaje>*{position:relative;z-index:2}
+.service-cat-photo{position:absolute!important;z-index:0!important;right:-4%;bottom:-6%;width:min(58%,420px);height:auto;object-fit:contain;opacity:.92;pointer-events:none;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 32%),linear-gradient(180deg,transparent 0%,#000 28%);mask-composite:intersect;-webkit-mask-composite:source-in;
+  transition:translate var(--dur-section) var(--ease-enter),scale var(--dur-section) var(--ease-enter)}
+.service-cat-embalaje:hover .service-cat-photo{translate:-6px -6px;scale:1.03}
+.service-cat-embalaje::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#0c4d8f 38%,#0c4d8f88 60%,transparent 100%);pointer-events:none}
+.service-cat-embalaje p{max-width:400px}
+@media(max-width:900px){.service-cat-photo{width:52%;opacity:.75}.service-cat-embalaje::before{background:linear-gradient(90deg,#0c4d8f 45%,#0c4d8faa 70%,#0c4d8f33 100%)}}
+@media(max-width:700px){.service-cat-photo{width:60%;right:-10%;bottom:-8%;opacity:.55}}

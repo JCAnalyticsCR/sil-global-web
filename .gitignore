@@ -11,3 +11,6 @@ desktop.ini
 # Editores
 .vscode/
 .idea/
+
+# Originales aportados por el cliente (los optimizados viven en assets/fotos)
+productos imagenes/
