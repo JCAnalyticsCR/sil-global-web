@@ -319,30 +319,7 @@
   const desktopQuery = matchMedia('(min-width: 701px)');
   desktopQuery.addEventListener('change', () => { if (desktopQuery.matches) closeMenu(); });
 
-  // Gentle pointer parallax; disabled on touch devices and with reduced motion.
-  const motionQuery = matchMedia('(prefers-reduced-motion: reduce)');
-  const globeVisual = $('.hero-visual');
-  const globeStage = $('.globe-stage');
-  globeVisual.addEventListener('pointermove', (event) => {
-    if (motionQuery.matches || event.pointerType !== 'mouse') return;
-    const rect = globeVisual.getBoundingClientRect();
-    const x = (event.clientX - rect.left - rect.width / 2) / rect.width * 11;
-    const y = (event.clientY - rect.top - rect.height / 2) / rect.height * 9;
-    globeStage.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
-    // inclinación hacia el cursor: hasta ±14° de lado y ±6° arriba/abajo
-    const nx = (event.clientX - rect.left) / rect.width - 0.5;
-    const ny = (event.clientY - rect.top) / rect.height - 0.5;
-    globeStage.classList.add('is-following');
-    globeStage.style.setProperty('--fy', `${(nx * 28).toFixed(2)}deg`);
-    globeStage.style.setProperty('--fx', `${(-ny * 12).toFixed(2)}deg`);
-  });
-  globeVisual.addEventListener('pointerleave', (event) => {
-    if (event.pointerType !== 'mouse') return;
-    globeStage.style.transform = '';
-    globeStage.style.setProperty('--fy', '0deg');
-    globeStage.style.setProperty('--fx', '0deg');
-  });
-
+  // El globo no reacciona al puntero: solo «respira» (CSS).
 
   // Navigation highlights track visible sections without modifying the URL.
   const sectionNav = [

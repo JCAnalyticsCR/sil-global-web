@@ -638,10 +638,19 @@ html{scroll-padding-top:112px}
 .globe-image,.globe-connections{animation:none!important}
 /* Planeta «vivo»: balanceo mínimo y lento en celular y PC. Usa las propiedades
    individuales rotate/translate, que se suman al transform del seguimiento del cursor. */
-@media(prefers-reduced-motion:no-preference){
-  .globe-image,.globe-connections{animation:globe-live 18s ease-in-out infinite!important}
-}
+/* (balanceo retirado a pedido del cliente) */
 @keyframes globe-live{0%,100%{rotate:y -3.5deg;translate:-4px 0}50%{rotate:y 3.5deg;translate:4px 0}}
 .globe-stage.is-following .globe-image,.globe-stage.is-following .globe-connections{
   transform:rotateY(var(--fy,0deg)) rotateX(var(--fx,0deg));transition:transform .6s cubic-bezier(.22,.8,.36,1)}
 @media(hover:hover) and (pointer:fine){.hero-visual{cursor:default}.hero-visual:active{cursor:default}}
+
+/* ---------- 36. Globo quieto que «respira»: pulso lento de tamaño y brillo, sin desplazarse ---------- */
+.globe-stage.is-following .globe-image,.globe-stage.is-following .globe-connections{transform:none!important}
+@media(prefers-reduced-motion:no-preference){
+  .globe-image,.globe-connections{animation:globe-breathe 7s ease-in-out infinite!important;transform-origin:50% 50%}
+  .globe-rim-glow{animation:rim-breathe 7s ease-in-out infinite!important}
+  .globe-halo{animation:halo-breathe 7s ease-in-out infinite}
+}
+@keyframes globe-breathe{0%,100%{scale:1}50%{scale:1.015}}
+@keyframes rim-breathe{0%,100%{opacity:.28}50%{opacity:.55}}
+@keyframes halo-breathe{0%,100%{opacity:.11}50%{opacity:.2}}
