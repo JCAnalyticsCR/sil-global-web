@@ -246,9 +246,11 @@
       panel.addEventListener('focusin', () => open(panel));
       panel.addEventListener('click', (event) => {
         const cta = panel.querySelector('.svc-cta');
-        if (!matchMedia('(hover: hover)').matches && !panel.classList.contains('is-open')) { event.preventDefault(); open(panel); return; }
-        // Con la tarjeta abierta, un clic en cualquier parte equivale al botón (productos, sección o consulta)
-        if (cta && !event.target.closest('.svc-cta')) cta.click();
+        if (event.target.closest('.svc-cta')) return; // el botón siempre hace lo suyo
+        // Celular / táctil: tocar la tarjeta solo la abre para leer; únicamente el botón lleva a otro lado
+        if (!matchMedia('(hover: hover)').matches) { event.preventDefault(); open(panel); return; }
+        // PC: un clic en cualquier parte de la tarjeta equivale al botón
+        if (cta) cta.click();
       });
     });
     stage.addEventListener('focusout', (event) => { if (!stage.contains(event.relatedTarget)) open(null); });
