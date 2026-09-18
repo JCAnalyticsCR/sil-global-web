@@ -598,3 +598,16 @@ html{scroll-padding-top:112px}
 @keyframes rim-breathe{0%,100%{opacity:.3}50%{opacity:.5}}
 /* Globo más claro: el océano se integra con el azul del fondo sin perder el contraste de los continentes */
 .globe-image{filter:brightness(1.5) contrast(.98) saturate(1.1)}
+
+/* ---------- 32. Rutas del globo más visibles: cometa con núcleo blanco y estela ---------- */
+.globe-connections .connection{stroke-width:2.1;opacity:.9}
+.globe-connections .connection.faint{stroke-width:1.7;opacity:.7}
+.route-trail{fill:none;stroke:#52dee0;stroke-width:5;stroke-linecap:round;stroke-dasharray:200 1400;stroke-dashoffset:200;opacity:0;
+  filter:drop-shadow(0 0 6px #52dee0);animation:route-trail var(--t,6s) cubic-bezier(.45,0,.25,1) var(--d,0s) infinite}
+.route-dash{stroke:#ffffff!important;stroke-width:3.4!important;stroke-dasharray:50 1400!important;
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 9px #52dee0)!important;animation-name:route-head!important}
+@keyframes route-trail{0%{stroke-dashoffset:200;opacity:0}10%{opacity:.55}80%{opacity:.55}100%{stroke-dashoffset:-1000;opacity:0}}
+@keyframes route-head{0%{stroke-dashoffset:50;opacity:0}8%{opacity:1}88%{opacity:1}100%{stroke-dashoffset:-1150;opacity:0}}
+/* Llegada a Costa Rica: pulso más marcado */
+.origin-pulse{stroke:#bff9fa!important;stroke-width:2!important}
+.route-origin{filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #52dee0)}
