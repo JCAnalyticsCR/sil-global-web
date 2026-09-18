@@ -263,16 +263,22 @@
           <p class="heading-description">Bolsas, envases y desechables, paletizado, protección y cintas. Consultá presentaciones y disponibilidad por WhatsApp.</p>
         </div>
         <div class="catalog-toolbar reveal" style="--i:1">
-          <div class="category-tabs" role="group" aria-label="Filtrar productos por categoría">
-            <button class="category-tab is-active" type="button" data-category="all" aria-pressed="true">Todos</button>
-            <button class="category-tab" type="button" data-category="empaque" aria-pressed="false">Empaque</button>
-            <button class="category-tab" type="button" data-category="embalaje" aria-pressed="false">Embalaje</button>
+          <div class="catalog-lines" role="group" aria-label="Línea de productos">
+            <button class="catalog-line is-active" type="button" data-line="destacados" aria-pressed="true">Destacados</button>
+            <button class="catalog-line" type="button" data-line="empaque" aria-pressed="false">Empaque <span>29</span></button>
+            <button class="catalog-line" type="button" data-line="embalaje" aria-pressed="false">Embalaje <span>10</span></button>
           </div>
           <label class="catalog-search"><svg class="icon"><use href="#i-search"/></svg><span class="sr-only">Buscar productos</span><input type="search" id="product-search" placeholder="Buscá un producto" maxlength="80" autocomplete="off"></label>
         </div>
-        <div class="product-grid" id="product-grid"></div>
+        <div class="catalog-sections" id="catalog-sections" role="group" aria-label="Secciones"></div>
+        <div class="catalog-stage">
+          <div class="product-grid product-rail" id="product-grid" tabindex="0" aria-label="Productos"></div>
+          <button class="rail-nav rail-prev" type="button" id="rail-prev" aria-label="Productos anteriores"><svg class="icon"><use href="#i-arrow"/></svg></button>
+          <button class="rail-nav rail-next" type="button" id="rail-next" aria-label="Más productos"><svg class="icon"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="rail-meta"><div class="rail-progress" aria-hidden="true"><span id="rail-bar"></span></div><span class="rail-range" id="rail-range"></span></div>
         <div class="empty-state" id="empty-state" hidden><svg class="icon"><use href="#i-search"/></svg><h3>No encontramos ese producto.</h3><p>Probá con otro nombre o consultanos qué necesitás.</p><button class="button button-outline" type="button" id="clear-filters">Ver todos los productos</button></div>
-        <div class="catalog-bottom"><p class="catalog-count" id="catalog-count" aria-live="polite"></p><button class="text-link" type="button" id="show-catalog">Explorar todo el catálogo <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+        <div class="catalog-bottom"><p class="catalog-count" id="catalog-count" aria-live="polite"></p><a class="text-link catalog-origin" href="#internacional">¿No encontrás lo que buscás? Te lo conseguimos <svg class="icon"><use href="#i-arrow"/></svg></a></div>
         <noscript><p class="no-js">Activá JavaScript para explorar el catálogo. Para consultar por productos, llamá al <a href="tel:+50671168899">+506 7116-8899</a>.</p></noscript>
       </div>
     </section>
