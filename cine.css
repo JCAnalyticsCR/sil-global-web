@@ -351,3 +351,16 @@ html{scroll-padding-top:112px}
 @media(max-width:900px){.site-header .header-inner{height:92px}.site-header .brand-logo{height:66px}}
 @media(max-width:700px){.site-header .header-inner{height:80px}.site-header .brand-logo{height:58px}html{scroll-padding-top:86px}}
 @media(max-width:380px){.site-header .brand-logo{height:50px}}
+
+/* ---------- 22. Nota del globo: integrada como leyenda, sin tarjeta flotante ---------- */
+.globe-caption{display:none!important}
+.globe-note{top:auto!important;right:auto!important;left:50%!important;bottom:-6px;translate:-50% 0;z-index:3;
+  background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;padding:0!important;border-radius:0;
+  display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;white-space:nowrap}
+.globe-note-icon{display:none}
+.globe-note::before{content:'';width:1px;height:26px;background:linear-gradient(180deg,transparent,var(--gold));margin-bottom:4px}
+.globe-note small{font-size:10px!important;letter-spacing:3px!important;color:var(--gold)!important;margin:0!important}
+.globe-note strong{font-size:17px!important;font-weight:500!important;color:#e6f2fd;line-height:1.3}
+.globe-note strong br{display:none}
+@media(max-width:900px){.globe-note{bottom:-2px}.globe-note strong{font-size:14px!important}}
+@media(max-width:700px){.globe-note{bottom:6px}.globe-note::before{height:16px}.globe-note small{font-size:8.5px!important;letter-spacing:2.2px!important}.globe-note strong{font-size:13.5px!important}}
