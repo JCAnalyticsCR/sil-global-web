@@ -611,3 +611,22 @@ html{scroll-padding-top:112px}
 /* Llegada a Costa Rica: pulso más marcado */
 .origin-pulse{stroke:#bff9fa!important;stroke-width:2!important}
 .route-origin{filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #52dee0)}
+
+/* ---------- 33. Globo: balanceo suave de lado a lado (no gira completo) ----------
+   Imagen y rutas llevan la misma animación, sincronizada, para moverse juntas.
+   El contenedor (.globe-stage) queda libre para el efecto de seguir el mouse. */
+.globe-stage{perspective:1600px}
+@media(prefers-reduced-motion:no-preference){
+  .globe-image,.globe-connections{transform-origin:50% 50%;animation:globe-sway 16s ease-in-out infinite;will-change:transform}
+}
+@keyframes globe-sway{
+  0%,100%{transform:rotateY(-9deg) translateX(-10px)}
+  50%{transform:rotateY(9deg) translateX(10px)}
+}
+@media(max-width:700px) and (prefers-reduced-motion:no-preference){
+  .globe-image,.globe-connections{animation-name:globe-sway-m}
+}
+@keyframes globe-sway-m{
+  0%,100%{transform:rotateY(-6deg) translateX(-5px)}
+  50%{transform:rotateY(6deg) translateX(5px)}
+}
