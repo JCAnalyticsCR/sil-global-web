@@ -462,3 +462,12 @@ html{scroll-padding-top:112px}
 .marquee{color:#fff}
 .marquee-track>span{text-shadow:0 1px 8px #0006}
 .marquee-track i{opacity:.85}
+
+/* ---------- 27. Foto real en "Productos de cualquier origen" ----------
+   La foto es clara: velo azul oscuro abajo (texto) y arriba (HUD) para que el blanco se lea. */
+.international-image>.intl-photo{object-position:58% center}
+.intl-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,#041f44b3 0%,#041f4426 22%,transparent 45%,#041f4459 62%,#041f44e6 100%)}
+.international-image figcaption,.international-image .hud,.international-image .image-corner{z-index:2}
+.international-image figcaption strong{text-shadow:0 2px 16px #000a}
+@media(max-width:900px){.international-image>.intl-photo{object-position:52% center}}
