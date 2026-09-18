@@ -14,3 +14,6 @@ desktop.ini
 
 # Originales aportados por el cliente (los optimizados viven en assets/fotos)
 productos imagenes/
+
+# Notas internas del proyecto (fuentes, decisiones, historial de la propuesta)
+notas-internas/

@@ -1,55 +1,36 @@
-# SIL Global · Propuesta de sitio web (prototipo)
+# SIL Global · Sitio web
 
-Maqueta navegable del sitio de **SIL Global Ltda** — distribución mayorista de embalaje y empaque, y bróker en compras internacionales (Costa Rica).
-
-**Ver la propuesta en vivo → https://jcanalyticscr.github.io/sil-global-web/**
-
-> Esto es un **prototipo de diseño**, no un sitio en producción. No hay dominio, hospedaje definitivo, analítica, carrito, pagos ni base de datos. Los textos y las ilustraciones de producto están pendientes de aprobación del cliente. El logo es el archivo oficial entregado por el cliente, mostrado sobre placa blanca.
-
-## Qué se puede probar
-
-- Portada en el azul del logo con acentos dorados, globo ilustrativo con conexiones animadas y movimiento sutil con el puntero (se desactiva si el sistema pide movimiento reducido).
-- Sección de servicios con cuatro paneles fotográficos expandibles y catálogo de 13 productos: 7 de bolsas, 2 de cintas y 4 de embalaje industrial.
-- Filtros por categoría, buscador que tolera búsquedas sin tildes y ficha de detalle por producto.
-- Secciones de acompañamiento comercial, bróker de compras internacionales, presentación («Nosotros», banda oscura con las dos líneas de negocio como tarjetas que enlazan a su sección) y contacto.
-- Formulario que **prepara** un mensaje y abre WhatsApp: no envía nada solo, no guarda datos y no usa servidor de formularios. La persona revisa y envía desde WhatsApp.
-- Navegación responsive de 320 a 1920 px, con menú móvil.
-- Capa cinematográfica (`cine.css` + `cine.js`): tinte ambiente que cambia por sección, tipografía fantasma con deriva por scroll, grano de película, reveals, cinta de líneas de producto, riel del proceso que se dibuja, marco de visor en la ilustración internacional y — solo en PC con puntero real — relieve 3D en tarjetas y foco de luz en el panel de contacto (el cursor personalizado se retiró a pedido del cliente). Todo respeta `prefers-reduced-motion` y el catálogo/formulario se mantienen quietos a propósito.
+Sitio oficial de SIL Global Ltda. — https://silglobalcr.com
 
 ## Stack
 
-HTML, CSS y JavaScript sin paso de compilación. Única dependencia externa: las tipografías Sora, Manrope y Fraunces desde Google Fonts (con fallback a Arial/Georgia si no cargan). Las ilustraciones son SVG propios; el globo es un WebP decorativo.
-
-## Correr en local
-
-No hay que instalar nada. Abrí `index.html` en el navegador manteniendo `styles.css`, `app.js` y `assets/` en la misma ubicación. Si preferís servirlo:
-
-```bash
-python -m http.server 8000
-```
+HTML, CSS y JavaScript sin paso de compilación. Tipografías desde Google Fonts. Sin servidor, base de datos ni formularios propios: las consultas se preparan en el navegador y se continúan por WhatsApp.
 
 ## Estructura
 
 | Archivo | Contenido |
 |---|---|
-| `index.html` | Estructura, textos de secciones, identificador gráfico y enlaces de contacto |
-| `styles.css` | Estilo base y adaptación de pantallas. Paleta al inicio, en `:root` (`--navy` (azul del logo), `--gold`, `--paper`, `--ink`, `--green`) |
-| `tipografia.css` | Familias tipográficas y escala de tamaños por breakpoint. La portada conserva sus tamaños |
-| `cine.css` | Capa cinematográfica. Constantes de movimiento únicas (`--dur-*`, `--ease-*`) al inicio; capa PC bajo `(min-width:1024px) and (hover:hover) and (prefers-reduced-motion:no-preference)` |
-| `cine.js` | Barra de progreso, tinte por sección, reveals de escritorio, cursor-retícula, relieve y foco. Mejora progresiva: sin él la página se ve completa y quieta |
-| `app.js` | Catálogo `PRODUCTS`, filtros, ventanas y `CONTACT.whatsapp` |
-| `assets/` | Globo, ilustraciones SVG y el logo en dos variantes (`logo-sil-global.svg` original, `logo-sil-global-dark.svg` para fondo navy) |
-| `LEEME.md` | Detalle funcional y notas previas a publicar |
-| `FUENTES-Y-PENDIENTES.md` | Origen del contenido, decisiones de alcance y qué falta aprobar |
+| `index.html` | Página única con todas las secciones |
+| `styles.css` | Estilos base y responsive |
+| `cine.css` / `cine.js` | Capa visual: animaciones, tinte por sección, header compacto |
+| `tipografia.css` | Sistema tipográfico |
+| `app.js` | Catálogo de productos, filtros, buscador y formulario de consulta |
+| `assets/` | Logo, globo, ilustraciones y fotos de producto (`assets/fotos/`) |
+| `CNAME` | Dominio personalizado de GitHub Pages |
 
-Al cambiar el teléfono en `app.js`, actualizá también los enlaces de `index.html`.
+## Correr en local
 
-## Alcance y fuentes
+```bash
+python -m http.server 8000
+```
 
-Todo el contenido comercial proviene de la información publicada por SIL Global en su perfil de Facebook, aportada por el cliente. No se verificó de forma independiente ni se añadieron precios, plazos, certificaciones, testimonios ni cifras. El detalle completo está en [`FUENTES-Y-PENDIENTES.md`](FUENTES-Y-PENDIENTES.md).
+y abrir http://localhost:8000.
 
-La página lleva `noindex, nofollow`: es una propuesta para revisión, no busca posicionarse en buscadores.
+## Publicación
 
----
+GitHub Pages desde la rama `main` (raíz), con dominio `silglobalcr.com` y HTTPS forzado. Cada push a `main` publica en uno o dos minutos.
 
-Propuesta preparada por **JC Analytics**.
+## Agregar un producto
+
+1. Foto recortada al producto, 1200×1000, en `assets/fotos/<id>.webp`.
+2. Una entrada en `PRODUCTS` dentro de `app.js` con `id`, `photo`, `title`, `category` (`bolsas`, `cintas` o `embalaje`), `summary`, `description` y `spec`.
