@@ -371,3 +371,8 @@ html{scroll-padding-top:112px}
 .globe-note>span:last-child{display:flex;align-items:baseline;gap:12px}
 .globe-note strong{font-size:15px!important}
 @media(max-width:700px){.globe-note{bottom:4px!important;gap:8px!important}.globe-note::before,.globe-note::after{width:16px}.globe-note>span:last-child{flex-direction:column;align-items:center;gap:2px}}
+
+/* ---------- 23. Fotos de producto recortadas: llenan la casilla ---------- */
+.product-image.has-photo{background:#eef4fa}
+.product-image.has-photo img{object-fit:cover;object-position:center;width:100%;height:100%}
+.product-image.has-photo .product-category{background:#ffffffe6;color:#0b4a8a;box-shadow:0 2px 10px #0b4a8a1a}
