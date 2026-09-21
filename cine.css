@@ -597,7 +597,7 @@ html{scroll-padding-top:112px}
 @media(prefers-reduced-motion:no-preference){.globe-rim-glow{animation:rim-breathe 6s ease-in-out infinite}}
 @keyframes rim-breathe{0%,100%{opacity:.3}50%{opacity:.5}}
 /* Globo más claro: el océano se integra con el azul del fondo sin perder el contraste de los continentes */
-.globe-image{filter:brightness(1.5) contrast(.98) saturate(1.1)}
+.globe-image{filter:none!important;opacity:1!important} /* filtros y opacidad ya aplicados en globe.webp */
 
 /* ---------- 32. Rutas del globo más visibles: cometa con núcleo blanco y estela ---------- */
 .globe-connections .connection{stroke-width:2.1;opacity:.9}
